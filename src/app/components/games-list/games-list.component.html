@@ -1,4 +1,8 @@
-<div class="games-list" *ngFor="let game of games">
-    <h2>{{game.name}}</h2>
-    <p>{{game.released}}</p>
+<div class="games-list">
+    <div class="game-item" *ngFor="let game of games">
+        <h2>{{game.name}}</h2>
+        <img src="{{game.background_image}}" alt="">
+        <p>{{game.released | date: 'dd.MM.YYYY'}}</p>
+    </div>
+
 </div>

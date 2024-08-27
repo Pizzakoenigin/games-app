@@ -29,6 +29,10 @@ export interface Game {
     esrb_rating: EsrbRating
     short_screenshots: ShortScreenshot[]
   }
+
+  export interface GameDetail {
+    
+  }
   
   export interface Rating {
     id: number

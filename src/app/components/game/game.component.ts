@@ -1,12 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RawgService } from '../../services/rawg.service';
+import { Game } from '../../interfaces/game';
+import { HeaderComponent } from '../header/header.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, CommonModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
-export class GameComponent {
+export class GameComponent implements OnInit{
+  game: any = [
+    
+  ]
 
+  constructor(public rawgService: RawgService) {
+
+  }
+
+  ngOnInit(): void {
+    this.rawgService.getGame().subscribe(data => {
+      this.game = data
+      if (this.game.description) {
+        this.game.description = this.removeHTMLTags(this.game.description)
+      }
+    })
+  }
+
+  removeHTMLTags(str: string): string {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(str, 'text/html');
+    return doc.body.textContent || "";
+  }
 }

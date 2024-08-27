@@ -1,8 +1,8 @@
 <div class="games-list">
-    <div class="game-item" *ngFor="let game of games">
-        <h2>{{game.name}}</h2>
+    <div class="game-item" *ngFor="let game of games" [routerLink]="['/game-detail', game.id]" (click)="rawgService.gameID = game.id">
         <img src="{{game.background_image}}" alt="">
-        <p>{{game.released | date: 'dd.MM.YYYY'}}</p>
+        <h2>{{game.name}}</h2>
+        <p>released: {{game.released | date: 'dd.MM.YYYY'}}</p>
     </div>
 
 </div>

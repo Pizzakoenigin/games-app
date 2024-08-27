@@ -1,1 +1,20 @@
-<p>game works!</p>
+<app-header></app-header>
+<div class="game-detail">
+    <div>
+        <img src={{game.background_image}} alt="">
+    </div>
+    <div>
+        <h2>{{game.name}}</h2>
+        <p>Released: {{game.released | date: 'dd.MM.YYYY'}}</p>
+        <p>Rating: {{game.metacritic}} / 100</p>
+        <p>{{game.description}}</p>
+        <p>Genres: <span *ngFor="let genre of game.genres">{{genre.name}}, </span> </p>
+        <p>Achievements: {{game.achievements_count}}</p>
+        <p>Platforms: <span *ngFor="let platform of game.platforms">{{platform.platform.name}}, </span></p>
+        <!-- <p>{{game.platforms}}</p> -->
+        <p>Developer(s): <span *ngFor="let developer of game.developers">{{developer.name}}, </span> </p>
+        <p>Publisher(s): <span *ngFor="let publisher of game.publishers">{{publisher.name}}, </span> </p>
+        <a href={{game.website}}>Link</a>
+    </div>
+
+</div>

@@ -1,13 +1,13 @@
 <app-header></app-header>
-<div class="game-detail">
-    <div>
+<div class="game-detail" [style.background-image]="'url(' + game.background_image + ')'" style="background-repeat: no-repeat; background-size: cover; background-position-x: center;">
+    <!-- <div class="game-image">
         <img src={{game.background_image}} alt="">
-    </div>
-    <div>
+    </div> -->
+    <div class="game-description">
         <h2>{{game.name}}</h2>
         <p>Released: {{game.released | date: 'dd.MM.YYYY'}}</p>
         <p>Rating: {{game.metacritic}} / 100</p>
-        <p>{{game.description}}</p>
+        <p class="description-text">{{game.description}}</p>
         <p>Genres: <span *ngFor="let genre of game.genres">{{genre.name}}, </span> </p>
         <p>Achievements: {{game.achievements_count}}</p>
         <p>Platforms: <span *ngFor="let platform of game.platforms">{{platform.platform.name}}, </span></p>

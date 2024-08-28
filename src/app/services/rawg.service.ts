@@ -9,11 +9,15 @@ export class RawgService {
   private API_KEY = '78d2b43889d3494786af988d6e92a584';
   private apiUrl = `https://api.rawg.io/api/games`
   public gameID: number = 0
+  paginatorPageSize: number = 20
+  paginatorPage: number = 0
 
   constructor(private http: HttpClient) { }
 
   getGames(): Observable<any> {
+    // return this.http.get(`${this.apiUrl}?key=${this.API_KEY}?page_size=${this.paginatorPageSize}?page=${this.paginatorPage}`)
     return this.http.get(`${this.apiUrl}?key=${this.API_KEY}`)
+
   }
 
   getGame(): Observable<any> {

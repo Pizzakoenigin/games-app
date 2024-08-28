@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { HttpClient } from '@angular/common/http';
 import { GameComponent } from './components/game/game.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-root',

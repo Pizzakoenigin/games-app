@@ -1,8 +1,19 @@
 <div class="games-list">
-    <div class="game-item" *ngFor="let game of games" [routerLink]="['/game-detail', game.id]" (click)="rawgService.gameID = game.id">
+    <div class="game-item" *ngFor="let game of games" [routerLink]="['/game-detail', game.id]"
+        (click)="rawgService.gameID = game.id">
         <img src="{{game.background_image}}" alt="">
         <h2>{{game.name}}</h2>
         <p>released: {{game.released | date: 'dd.MM.YYYY'}}</p>
     </div>
-
 </div>
+
+<!-- <div>
+    <mat-paginator 
+    [length]="rawgService.paginatorPageSize" 
+    [pageSize]="20" 
+    [pageSizeOptions]="[5, 10, 20]" 
+    [pageIndex]="rawgService.paginatorPage"
+    aria-label="Select page">
+    </mat-paginator>
+
+</div> -->

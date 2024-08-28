@@ -3,6 +3,7 @@ body {
     font-family: sans-serif;
     background-color: rgb(47, 47, 47);
     margin: 0;
+    font-weight: 300;
 }
 
 html, body { height: 100%; }

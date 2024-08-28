@@ -13,14 +13,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   styleUrl: './games-list.component.css'
 })
 export class GamesListComponent implements OnInit{
-  games: Game[] = [];
+
 
 
   constructor(public rawgService: RawgService) {}
 
   ngOnInit(): void {
     this.rawgService.getGames().subscribe(data => {
-      this.games = data.results
+      this.rawgService.games = data.results
+      // console.log(data);
+      
     })
   }
 }

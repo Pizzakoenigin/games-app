@@ -52,7 +52,7 @@
     border-radius: 0 0 0.8em 0.8em;
 
     .description-text {
-        columns: 3;
+        columns: 4;
     }
     
 }

@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Game } from '../interfaces/game';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +9,25 @@ import { Observable } from 'rxjs';
 export class RawgService {
   private API_KEY = '78d2b43889d3494786af988d6e92a584';
   private apiUrl = `https://api.rawg.io/api/games`
-  public gameID: number = 0
+  public gameID: number = 0;
   paginatorPageSize: number = 20
-  paginatorPage: number = 0
+  paginatorPage: number = 1
+  gameSlug: string = '';
+  games: Game[] = [];
 
   constructor(private http: HttpClient) { }
 
   getGames(): Observable<any> {
-    // return this.http.get(`${this.apiUrl}?key=${this.API_KEY}?page_size=${this.paginatorPageSize}?page=${this.paginatorPage}`)
-    return this.http.get(`${this.apiUrl}?key=${this.API_KEY}`)
+    return this.http.get(`${this.apiUrl}?key=${this.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+    // return this.http.get(`${this.apiUrl}?key=${this.API_KEY}`)
 
   }
 
   getGame(): Observable<any> {
     return this.http.get(`${this.apiUrl}/${this.gameID}?key=${this.API_KEY}`)
+  }
 
+  searchGameByString(): Observable<any> {
+    return this.http.get(`${this.apiUrl}?search=${this.gameSlug}&key=${this.API_KEY}`)
   }
 }

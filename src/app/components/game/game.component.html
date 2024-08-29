@@ -42,6 +42,21 @@
 
                 </div>
             </div>
+
+
+            <div class="paginator" *ngIf="details.length > 0">
+                <div class="paginator-container">
+                <mat-paginator 
+                (page)="handlePageEvent($event)"
+                [length]="achievementService.paginatorLength"
+                [pageSize]="achievementService.paginatorPageSize" 
+                [pageSizeOptions]="[8, 16, 20]" 
+                
+                aria-label="Select page">
+                </mat-paginator>        
+                </div>
+            
+            </div>
         </div>
     </div>
 

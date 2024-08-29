@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { Detail } from '../../interfaces/detail';
 import { AchievementsService } from '../../services/achievements.service';
+import { PageEvent, MatPaginator } from '@angular/material/paginator';
 
 
 
@@ -18,6 +19,7 @@ import { AchievementsService } from '../../services/achievements.service';
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatPaginator,
     RouterLink
   ],
   templateUrl: './game.component.html',
@@ -48,14 +50,21 @@ export class GameComponent implements OnInit {
   getAchievements(): void {
     this.achievementService.getAchievements().subscribe(data => {
       this.details = data.results
-      console.log(this.details);
-      
-    })
+      this.achievementService.paginatorLength = data.count;
+     })
   }
 
   removeHTMLTags(str: string): string {
     const parser = new DOMParser();
     const doc = parser.parseFromString(str, 'text/html');
     return doc.body.textContent || "";
+  }
+
+  handlePageEvent(e: PageEvent) {
+    // this.pageEvent = e;
+    // this.rawgService.paginatorLength = e.length;
+    this.achievementService.paginatorPageSize = e.pageSize;
+    this.achievementService.paginatorPage = e.pageIndex + 1;
+    this.getAchievements()
   }
 }

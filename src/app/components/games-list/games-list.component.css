@@ -31,10 +31,13 @@
     /* width: 10vw; */
     /* height: 17vw; */
 
-    h2 {
-        margin: 0.4em 0;
-        font-weight: 300;
 
+
+    h2 {
+        margin: 0.4em 0 0.3em 0;
+        /* font-weight: 300; */
+    font-weight: 300;
+    font-size: 1.5em;
     }
 
     /* h3 {
@@ -52,6 +55,7 @@
 
     p {
         margin: 0.2em 0;
+        font-weight: 200;
     }
 
     img {

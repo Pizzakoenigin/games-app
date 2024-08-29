@@ -24,12 +24,24 @@ constructor(public rawgService: RawgService) {}
   }
 
   loadGames() {
+    if(this.rawgService.gameSlug == '') {
     this.rawgService.getGames().subscribe(data => {
       this.rawgService.games = data.results;
-      this.rawgService.paginatorLength = data.count; // Assuming the API returns total count
+      this.rawgService.paginatorLength = data.count;
+    });      
+    } else {
+      this.searchGames()
+    }
 
-      
-    });
+
+
   }
 
+  searchGames() {
+    this.rawgService.searchGameByString().subscribe(data => {
+      this.rawgService.games = data.results
+      this.rawgService.paginatorLength = data.count;
+      
+    })
+  }
 }

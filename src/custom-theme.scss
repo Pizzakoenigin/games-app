@@ -26,6 +26,12 @@ $games-app-theme: mat.define-theme((
 // that you are using.
 :root {
   @include mat.all-component-themes($games-app-theme);
+  --mat-paginator-container-text-color: white;
+  --mat-paginator-container-background-color: rgb(62, 62, 62);
+  --mat-select-enabled-trigger-text-color: white;
+  --mat-select-enabled-arrow-color: white;
+  --mat-paginator-enabled-icon-color: white;
+    --mat-paginator-disabled-icon-color: rgba(255, 255, 255, 0.7);
 }
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.

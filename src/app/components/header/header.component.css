@@ -24,6 +24,10 @@ h1 {
     /* text-align: center; */
 }
 
+h1:hover {
+    cursor: pointer;
+}
+
 .search-input {
     appearance: none;
     border-radius: 0.5em;

@@ -1,4 +1,5 @@
 <div class="paginator">
+    <div class="paginator-container">
     <mat-paginator 
     (page)="handlePageEvent($event)"
     [length]="rawgService.paginatorLength"
@@ -6,5 +7,7 @@
     [pageSizeOptions]="[8, 16, 20]" 
     
     aria-label="Select page">
-    </mat-paginator>
+    </mat-paginator>        
+    </div>
+
 </div>

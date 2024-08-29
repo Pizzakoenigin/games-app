@@ -23,7 +23,7 @@ export class GamesListComponent implements OnInit{
   ngOnInit(): void {
     this.rawgService.getGames().subscribe(data => {
       this.rawgService.games = data.results
-      // console.log(data);
+      this.rawgService.paginatorLength = data.count;
       
     })
     // this.loadGames()

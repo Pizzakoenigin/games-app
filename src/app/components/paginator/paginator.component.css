@@ -1,0 +1,21 @@
+.paginator {
+    background-color: rgb(62, 62, 62);
+    filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
+.paginator-container {
+    width: 80vw;
+    margin: 0 auto 1em auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;    
+}
+
+/* .mat-mdc-paginator {
+    color: white !important;
+    background-color: rgb(62, 62, 62) !important;
+} */
+

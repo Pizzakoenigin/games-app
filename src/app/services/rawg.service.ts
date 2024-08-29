@@ -1,5 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {PageEvent, MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { Game } from '../interfaces/game';
 
@@ -12,10 +13,15 @@ export class RawgService {
   public gameID: number = 0;
   paginatorPageSize: number = 20
   paginatorPage: number = 1
+  paginatorLength: number = 100
   gameSlug: string = '';
   games: Game[] = [];
 
+
+
   constructor(private http: HttpClient) { }
+
+
 
   getGames(): Observable<any> {
     return this.http.get(`${this.apiUrl}?key=${this.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)

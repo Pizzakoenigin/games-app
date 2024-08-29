@@ -1,22 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RawgService } from '../../services/rawg.service';
 import { Game } from '../../interfaces/game';
 import { RouterLink } from '@angular/router';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {PageEvent, MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
+import { PaginatorComponent } from '../paginator/paginator.component';
+
 
 @Component({
   selector: 'app-games-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatPaginatorModule],
+  imports: [CommonModule, RouterLink, MatPaginatorModule, MatPaginator, PaginatorComponent],
   templateUrl: './games-list.component.html',
   styleUrl: './games-list.component.css'
 })
 export class GamesListComponent implements OnInit{
-
-
-
   constructor(public rawgService: RawgService) {}
+
+
+  
 
   ngOnInit(): void {
     this.rawgService.getGames().subscribe(data => {
@@ -24,5 +26,6 @@ export class GamesListComponent implements OnInit{
       // console.log(data);
       
     })
+    // this.loadGames()
   }
 }

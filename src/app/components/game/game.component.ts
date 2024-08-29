@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { Detail } from '../../interfaces/detail';
+import { AchievementsService } from '../../services/achievements.service';
 
 
 
@@ -26,7 +28,11 @@ export class GameComponent implements OnInit {
 
   ]
 
-  constructor(public rawgService: RawgService) {
+  details: Detail[] = []
+
+  showAchievements: boolean = false
+
+  constructor(public rawgService: RawgService, public achievementService: AchievementsService) {
 
   }
 
@@ -36,6 +42,14 @@ export class GameComponent implements OnInit {
       if (this.game.description) {
         this.game.description = this.removeHTMLTags(this.game.description)
       }
+    })
+  }
+
+  getAchievements(): void {
+    this.achievementService.getAchievements().subscribe(data => {
+      this.details = data.results
+      console.log(this.details);
+      
     })
   }
 

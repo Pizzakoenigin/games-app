@@ -73,3 +73,54 @@
 .back-btn:hover {
     background-color: orange;
 }
+
+.achievement-link {
+    color: rgb(119, 29, 97);
+    transition: all 0.3s ease-in;
+}
+
+.achievement-link:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+.game-achievements {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.game-achievement {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    justify-content: space-between;
+    border-radius: 0.8em;
+    border: 1px solid rgb(119, 29, 97);
+    background-color: white;
+    padding: 1em;
+    transition: all 0.3s ease-in; 
+
+    p {
+       margin: 0.2em;
+    }
+
+    img {
+        /* border-radius: 0.8em 0.8em 0 0; */
+    }
+    
+}
+
+.game-achievement:hover {
+    border: 1px solid orange;
+}
+
+.achievement-container {
+    
+    margin: -1em;
+    padding: 1em;
+
+    h3 {
+        /* margin: 0; */
+    }
+}

@@ -56,3 +56,20 @@
     }
     
 }
+
+.btn-container {
+    padding-left: 10vw;
+}
+
+.back-btn {
+    /* width: 20vw; */
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(119, 29, 97);
+    transition: all 0.3s ease-in;
+}
+
+.back-btn:hover {
+    background-color: orange;
+}

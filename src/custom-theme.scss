@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -10,16 +9,12 @@
 @include mat.core();
 
 // Define the theme object.
-$games-app-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
-  )
-));
+$games-app-theme: mat.define-theme((color: (theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      density: (scale: 0,
+      )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -31,7 +26,11 @@ $games-app-theme: mat.define-theme((
   --mat-select-enabled-trigger-text-color: white;
   --mat-select-enabled-arrow-color: white;
   --mat-paginator-enabled-icon-color: white;
-    --mat-paginator-disabled-icon-color: rgba(255, 255, 255, 0.7);
+  --mat-paginator-disabled-icon-color: rgba(255, 255, 255, 0.7);
+
+
+  --mdc-protected-button-container-color: rgb(119, 29, 97);
+  --mdc-protected-button-label-text-color: white;
 }
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.

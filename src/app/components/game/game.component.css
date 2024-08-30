@@ -11,7 +11,7 @@
     border-radius: 0.8em;
     gap: 1em;
     /* background: linear-gradient(to bottom right, rgb(10, 16, 43), rgb(72, 7, 70)) ; */
-    filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
+    filter: drop-shadow(0 0 0.35rem rgb(100, 0, 0));
     border: 1px solid var(--bright-violet);
     transition: all 0.3s ease-in;
     width: 80vw;
@@ -73,12 +73,13 @@
 }
 
 .achievement-link {
-    color: white;
+    /* color: white; */
     transition: all 0.3s ease-in;
+    color: orange;
 }
 
 .achievement-link:hover {
-    color: orange;
+    
     cursor: pointer;
 }
 
@@ -86,6 +87,7 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    padding: 0 1em 1em 1em;
 }
 
 .game-achievement {
@@ -98,7 +100,7 @@
     background-color: rgba(127, 127, 127, 0.745);;
     padding: 1em;
     transition: all 0.3s ease-in;
-    filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
+    /* filter: drop-shadow(0 0 0.35rem rgb(100, 0, 0)); */
 
     p {
         margin: 0.2em;
@@ -114,12 +116,23 @@
 }
 
 .achievement-container {
-    margin: -1em;
-    padding: 1em;
+    /* margin: -1em;
+     */
 
-    /* h3 {
+    h3 {
+        padding: 2em 1em;
         margin: 0;
-    } */
+    }
+
+    filter: drop-shadow(0 0 0.35rem rgb(100, 0, 0));
+    border: 1px solid var(--bright-violet);
+    transition: all 0.3s ease-in;
+    width: 80vw;
+    margin: 1em auto;
+    border-radius: 0.8em;
+    background-color: var(--bright-gray);
+    padding-bottom: 2em;
+    
 }
 
 .paginator-achievement {

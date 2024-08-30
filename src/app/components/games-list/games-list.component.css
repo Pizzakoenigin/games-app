@@ -25,7 +25,7 @@
     padding: 1em;
     border-radius: 0.8em;
     background: linear-gradient(to bottom right, var(--dark-blue), var(--dark-violet)) ;
-    filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
+    filter: drop-shadow(0 0 0.35rem rgb(100, 0, 0));
     border: 1px solid var(--bright-violet);
     transition: all 0.3s ease-in;
     /* width: 10vw; */
@@ -65,8 +65,8 @@
 }
 
 .game-item:hover {
-    background: linear-gradient(to bottom right, orange, var(--dark-violet)) ;
-    filter: drop-shadow(2 2 1rem rgb(0, 0, 0));
-    border: 1px solid rgb(226, 138, 14);
+    background: linear-gradient(to bottom right, rgb(255, 165, 0), var(--dark-violet)) ;
+    /* filter: drop-shadow(2 2 1rem rgb(255, 165, 0)); */
+    border: 1px solid var(--orange-highlight);
     cursor: pointer;
 }

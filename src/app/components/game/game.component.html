@@ -26,38 +26,42 @@
                     *ngIf="!last">, </span></span> </p>
         <a href={{game.website}}>Website</a>
 
-        <div class="achievement-container">
-            <h3>Achievements: 
-                <span (click)="getAchievements()" class="achievement-link" *ngIf="details.length == 0">Show
-                    achievements</span>
-                <span (click)="details = []" class="achievement-link" *ngIf="details.length > 0">Hide
-                    achievements</span>
-            </h3>
-            <div class="game-achievements" *ngIf="details.length > 0">
-                <div class="game-achievement" *ngFor="let detail of details">
-                    <img src="{{detail.image}}" alt="">
-                    <h4>{{detail.name}}</h4>
-                    <p>{{detail.description}}</p>
-                    <p>{{detail.percent}}% of players have this achievement</p>
 
-                </div>
-            </div>
+    </div>
+</div>
 
+<div class="achievement-container">
+    <h3>Achievements: 
 
-            <div class="paginator-achievement" *ngIf="details.length > 0">
-                <div class="paginator-container-achievement">
-                <mat-paginator 
-                (page)="handlePageEvent($event)"
-                [length]="achievementService.paginatorLength"
-                [pageSize]="achievementService.paginatorPageSize" 
-                [pageSizeOptions]="[8, 16, 20]" 
-                
-                aria-label="Select page">
-                </mat-paginator>        
-                </div>
-            
-            </div>
+    </h3>
+    <div class="game-achievements" *ngIf="details.length > 0">
+        <div class="game-achievement" *ngFor="let detail of details">
+            <img src="{{detail.image}}" alt="">
+            <h4>{{detail.name}}</h4>
+            <p>{{detail.description}}</p>
+            <p>{{detail.percent}}% of players have this achievement</p>
+
         </div>
+    </div>
+
+        <span (click)="getAchievements()" class="achievement-link" *ngIf="details.length == 0" style="padding: 1em;">Show
+            achievements</span>
+        <span (click)="details = []" class="achievement-link" *ngIf="details.length > 0" style="padding: 1em;">Hide
+            achievements</span>    
+
+
+    <div class="paginator-achievement" *ngIf="details.length > 0">
+        <div class="paginator-container-achievement">
+        <mat-paginator 
+        (page)="handlePageEvent($event)"
+        [length]="achievementService.paginatorLength"
+        [pageSize]="achievementService.paginatorPageSize" 
+        [pageSizeOptions]="[8, 16, 20]" 
+        
+        aria-label="Select page">
+        </mat-paginator>        
+        </div>
+    
     </div>
 </div>
 

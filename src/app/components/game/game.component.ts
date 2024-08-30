@@ -48,6 +48,8 @@ export class GameComponent implements OnInit {
         this.game.description = this.removeHTMLTags(this.game.description)
       }
     })
+
+    this.getAchievements()
   }
 
   getAchievements(): void {

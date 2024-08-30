@@ -31,6 +31,9 @@ $games-app-theme: mat.define-theme((color: (theme-type: light,
 
   --mdc-protected-button-container-color: rgb(119, 29, 97);
   --mdc-protected-button-label-text-color: white;
+
+  --mdc-outlined-text-field-focus-outline-color: orange;
+  --mat-select-focused-arrow-color: orange;
 }
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.

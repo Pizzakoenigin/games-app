@@ -5,12 +5,20 @@ import { Game } from '../../interfaces/game';
 import { RouterLink } from '@angular/router';
 import {PageEvent, MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import { PaginatorComponent } from '../paginator/paginator.component';
+import { FooterComponent } from '../footer/footer.component';
 
 
 @Component({
   selector: 'app-games-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatPaginatorModule, MatPaginator, PaginatorComponent],
+  imports: [
+    CommonModule, 
+    RouterLink, 
+    MatPaginatorModule, 
+    MatPaginator, 
+    PaginatorComponent,
+    FooterComponent
+  ],
   templateUrl: './games-list.component.html',
   styleUrl: './games-list.component.css'
 })

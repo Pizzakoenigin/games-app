@@ -3,7 +3,7 @@ import { RawgService } from '../../services/rawg.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +17,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
-  constructor(public rawgService: RawgService) {
+  constructor(public rawgService: RawgService, private router: Router) {
 
   }
 
@@ -27,13 +27,16 @@ export class HeaderComponent implements OnInit{
 
   onKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      this.searchGames()
+      this.searchGames();
+      this.router.navigate(['']);
     }
   }
+
   searchGames() {
     this.rawgService.searchGameByString().subscribe(data => {
       this.rawgService.games = data.results
       this.rawgService.paginatorLength = data.count;
+      
     })
   }
 }

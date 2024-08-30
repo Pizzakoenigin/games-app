@@ -40,13 +40,18 @@
 
     padding: 1em;
     /* position: absolute; */
-    color: rgb(61, 61, 61);
-    background-color: rgba(255, 255, 255, 0.8);
-    text-shadow: 1px 1px 1px #e2e2e2;
+    background-color: rgb(61, 61, 61);
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 1px rgb(61, 61, 61);
     border-radius: 0 0 0.8em 0.8em;
 
     .description-text {
         columns: 4;
+    }
+
+    a {
+        text-decoration: none;
+        color: orange;
     }
 }
 
@@ -68,7 +73,7 @@
 }
 
 .achievement-link {
-    color: rgb(119, 29, 97);
+    color: white;
     transition: all 0.3s ease-in;
 }
 
@@ -90,17 +95,18 @@
     justify-content: space-between;
     border-radius: 0.8em;
     border: 1px solid rgb(119, 29, 97);
-    background-color: white;
+    background-color: rgba(127, 127, 127, 0.745);;
     padding: 1em;
     transition: all 0.3s ease-in;
+    filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
 
     p {
         margin: 0.2em;
     }
 
-    img {
-        /* border-radius: 0.8em 0.8em 0 0; */
-    }
+    /* img {
+        border-radius: 0.8em 0.8em 0 0;
+    } */
 }
 
 .game-achievement:hover {
@@ -111,7 +117,11 @@
     margin: -1em;
     padding: 1em;
 
-    h3 {
-        /* margin: 0; */
-    }
+    /* h3 {
+        margin: 0;
+    } */
+}
+
+.paginator-achievement {
+    padding-top: 1em;
 }

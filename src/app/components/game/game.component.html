@@ -24,10 +24,10 @@
                     *ngIf="!last">, </span></span> </p>
         <p>Publisher(s): <span *ngFor="let publisher of game.publishers; let last = last">{{publisher.name}}<span
                     *ngIf="!last">, </span></span> </p>
-        <a href={{game.website}}>Link</a>
+        <a href={{game.website}}>Website</a>
 
         <div class="achievement-container">
-            <h3>Achievements: {{game.achievements_count}}
+            <h3>Achievements: 
                 <span (click)="getAchievements()" class="achievement-link" *ngIf="details.length == 0">Show
                     achievements</span>
                 <span (click)="details = []" class="achievement-link" *ngIf="details.length > 0">Hide
@@ -44,8 +44,8 @@
             </div>
 
 
-            <div class="paginator" *ngIf="details.length > 0">
-                <div class="paginator-container">
+            <div class="paginator-achievement" *ngIf="details.length > 0">
+                <div class="paginator-container-achievement">
                 <mat-paginator 
                 (page)="handlePageEvent($event)"
                 [length]="achievementService.paginatorLength"
@@ -59,8 +59,9 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<app-footer></app-footer>
 <div class="btn-container">
     <button mat-raised-button [routerLink]="['']" (click)="rawgService.gameSlug = ''" class="back-btn"><mat-icon
             aria-hidden="false" aria-label="Example arrow_back icon" fontIcon="arrow_back"></mat-icon> Back to Main

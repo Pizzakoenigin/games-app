@@ -9,18 +9,21 @@ import { RouterLink } from '@angular/router';
 import { Detail } from '../../interfaces/detail';
 import { AchievementsService } from '../../services/achievements.service';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
+import { FooterComponent } from '../footer/footer.component';
 
 
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [HeaderComponent,
+  imports: [
+    HeaderComponent,
     CommonModule,
     MatButtonModule,
     MatIconModule,
     MatPaginator,
-    RouterLink
+    RouterLink,
+    FooterComponent
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'

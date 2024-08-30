@@ -1,5 +1,5 @@
 .header {
-    background-color: rgb(62, 62, 62);
+    background-color: var(--bright-gray);
     filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
     position: sticky;
     top: 0;
@@ -50,7 +50,7 @@ h1:hover {
         right: 10%;
         top: 50%; 
         transform: translateY(-50%); 
-        color: rgb(62, 62, 62); 
+        color: var(--bright-gray); 
     }
     .search-icon:hover {
         cursor: pointer;

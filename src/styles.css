@@ -1,7 +1,20 @@
+:root {
+    --dark-gray: rgb(47, 47, 47);
+
+    --bright-gray: rgb(62, 62, 62);
+
+    --dark-blue: rgb(10, 16, 43);
+
+    --dark-violet: rgb(72, 7, 70);
+
+    --bright-violet: rgb(119, 29, 97);
+}
+
+
 body {
     color: rgb(244, 244, 244);
     font-family: sans-serif;
-    background-color: rgb(47, 47, 47);
+    background-color: var(--dark-gray);
     margin: 0;
     font-weight: 300;
     padding-bottom: 2em;

@@ -12,7 +12,7 @@
     gap: 1em;
     /* background: linear-gradient(to bottom right, rgb(10, 16, 43), rgb(72, 7, 70)) ; */
     filter: drop-shadow(0 0 0.35rem rgb(0, 0, 0));
-    border: 1px solid rgb(119, 29, 97);
+    border: 1px solid var(--bright-violet);
     transition: all 0.3s ease-in;
     width: 80vw;
     margin: 1em auto;
@@ -40,8 +40,8 @@
 
     padding: 1em;
     /* position: absolute; */
-    background-color: rgb(61, 61, 61);
-    color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(61, 61, 61, 0.8);
+    color: rgba(255, 255, 255,);
     text-shadow: 1px 1px 1px rgb(61, 61, 61);
     border-radius: 0 0 0.8em 0.8em;
 
@@ -64,7 +64,7 @@
     /* margin: 0 auto; */
     display: flex;
     justify-content: flex-start;
-    background-color: rgb(119, 29, 97);
+    background-color: var(--bright-violet);
     transition: all 0.3s ease-in;
 }
 
@@ -94,7 +94,7 @@
     justify-content: flex-end;
     justify-content: space-between;
     border-radius: 0.8em;
-    border: 1px solid rgb(119, 29, 97);
+    border: 1px solid var(--bright-violet);
     background-color: rgba(127, 127, 127, 0.745);;
     padding: 1em;
     transition: all 0.3s ease-in;

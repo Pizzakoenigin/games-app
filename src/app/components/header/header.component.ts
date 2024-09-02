@@ -11,7 +11,8 @@ import { Router, RouterLink } from '@angular/router';
   imports: [
     FormsModule,
     MatIconModule,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -40,6 +41,7 @@ export class HeaderComponent implements OnInit{
       this.searchGames();
       this.router.navigate(['']);
     }
+
 
 
   }

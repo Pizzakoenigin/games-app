@@ -5,11 +5,12 @@ import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Achievement } from '../../interfaces/detail';
 import { AchievementsService } from '../../services/achievements.service';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import { FooterComponent } from '../footer/footer.component';
+import { firstValueFrom } from 'rxjs';
 
 
 
@@ -23,7 +24,7 @@ import { FooterComponent } from '../footer/footer.component';
     MatIconModule,
     MatPaginator,
     RouterLink,
-    FooterComponent
+    FooterComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
@@ -37,7 +38,7 @@ export class GameComponent implements OnInit {
 
   showAchievements: boolean = false
 
-  constructor(public rawgService: RawgService, public achievementService: AchievementsService) {
+  constructor(public rawgService: RawgService, public achievementService: AchievementsService, private router: Router) {
 
   }
 
@@ -56,8 +57,10 @@ export class GameComponent implements OnInit {
     this.achievementService.getAchievements().subscribe(data => {
       this.achievements = data.results
       this.achievementService.paginatorLength = data.count;
-     })
+    })
   }
+
+
 
   removeHTMLTags(str: string): string {
     const parser = new DOMParser();

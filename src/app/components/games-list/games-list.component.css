@@ -15,7 +15,8 @@
 
 }
 
-.game-item, .load-container {
+.game-item,
+.load-container {
     /* align-self: bottom; */
     display: flex;
     flex-direction: column;
@@ -24,7 +25,7 @@
     position: relative;
     padding: 1em;
     border-radius: 0.8em;
-    background: linear-gradient(to bottom right, var(--dark-blue), var(--dark-violet)) ;
+    background: linear-gradient(to bottom right, var(--dark-blue), var(--dark-violet));
     filter: drop-shadow(0 0 0.35rem rgb(100, 0, 0));
     border: 1px solid var(--bright-violet);
     transition: all 0.3s ease-in;
@@ -36,8 +37,8 @@
     h2 {
         margin: 0.4em 0 0.3em 0;
         /* font-weight: 300; */
-    font-weight: 300;
-    font-size: 1.5em;
+        font-weight: 300;
+        font-size: 1.5em;
     }
 
     p {
@@ -53,20 +54,36 @@
 
     img {
         width: 100%;
-    height: 100%;
+        height: 100%;
         object-fit: cover;
-        transform:scale(1);
+        transform: scale(1);
         transition: all 0.3s ease-in-out;
-    }
-
-    img:hover {
-        transform: scale(1.2);
     }
 }
 
 .game-item:hover {
-    background: linear-gradient(to bottom right, rgb(255, 165, 0), var(--dark-violet)) ;
+    background: linear-gradient(to bottom right, rgb(255, 165, 0), var(--dark-violet));
     /* filter: drop-shadow(2 2 1rem rgb(255, 165, 0)); */
     border: 1px solid var(--orange-highlight);
     cursor: pointer;
+    img {
+        transform: scale(1.2);
+    }
+}
+
+.btn-container {
+    padding-left: 10vw;
+}
+
+.back-btn {
+    /* width: 20vw; */
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--bright-violet);
+    transition: all 0.3s ease-in;
+}
+
+.back-btn:hover {
+    background-color: orange;
 }

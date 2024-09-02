@@ -7,6 +7,8 @@ import {PageEvent, MatPaginatorModule, MatPaginator} from '@angular/material/pag
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -16,7 +18,9 @@ import { HeaderComponent } from '../header/header.component';
     CommonModule, 
     RouterLink, 
     MatPaginatorModule, 
-    MatPaginator, 
+    MatPaginator,
+    MatIconModule,
+    MatButtonModule, 
     PaginatorComponent,
     FooterComponent,
     HeaderComponent
@@ -27,18 +31,27 @@ import { HeaderComponent } from '../header/header.component';
 export class GamesListComponent implements OnInit{
   constructor(public rawgService: RawgService) {}
 
-
-  
-
   ngOnInit(): void {
-    if(this.rawgService.searchMode == false) {
+    this.loadGames()
+  }
+
+  loadGames() {
+    if(this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false) {
     this.rawgService.getGames().subscribe(data => {
       this.rawgService.games = data.results
       this.rawgService.paginatorLength = data.count;
      })       
-    }
+    }      
+  }
 
+  returnToMain() {
+    console.log('check');
     
-    // this.loadGames()
+    this.rawgService.gameSlug = ''; 
+    this.rawgService.searchMode = false; 
+    this.rawgService.developerSearchMode = false;
+    this.rawgService.developer = []
+    this.rawgService.games = [] 
+    this.loadGames()
   }
 }

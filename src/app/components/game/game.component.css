@@ -61,22 +61,7 @@
     }
 }
 
-.btn-container {
-    padding-left: 10vw;
-}
 
-.back-btn {
-    /* width: 20vw; */
-    /* margin: 0 auto; */
-    display: flex;
-    justify-content: flex-start;
-    background-color: var(--bright-violet);
-    transition: all 0.3s ease-in;
-}
-
-.back-btn:hover {
-    background-color: orange;
-}
 
 .achievement-link {
     /* color: white; */
@@ -143,4 +128,26 @@
 
 .paginator-achievement {
     padding-top: 1em;
+}
+
+.developers-span:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+.btn-container {
+    padding-left: 10vw;
+}
+
+.back-btn {
+    /* width: 20vw; */
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--bright-violet);
+    transition: all 0.3s ease-in;
+}
+
+.back-btn:hover {
+    background-color: orange;
 }

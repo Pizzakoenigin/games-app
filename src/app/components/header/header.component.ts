@@ -22,7 +22,17 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    // if (this.rawgService.gameSlug == '') {
+    //   this.rawgService.searchMode = false
+    // }
+
     
+    // if (this.rawgService.gameSlug === '') {
+    //   console.log('click');
+      
+    //   this.rawgService.searchMode = false
+    // }
+
   }
 
   onKeydown(event: KeyboardEvent) {
@@ -30,6 +40,8 @@ export class HeaderComponent implements OnInit{
       this.searchGames();
       this.router.navigate(['']);
     }
+
+
   }
 
   searchGames() {

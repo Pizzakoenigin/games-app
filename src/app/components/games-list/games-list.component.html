@@ -10,7 +10,10 @@
 <div class="games-list" *ngIf="rawgService.games.length > 0">
     <div class="game-item" *ngFor="let game of rawgService.games" [routerLink]="['/game-detail', game.id]"
         (click)="rawgService.gameID = game.id">
-        <img src="{{game.background_image}}" alt="">
+        <div class="image-wrapper">
+           <img src="{{game.background_image}}" alt=""> 
+        </div>
+        
         <h2>{{game.name}}</h2>
         <p>Genres: <span *ngFor="let genre of game.genres; let last = last">{{genre.name}}<span *ngIf="!last">,
                 </span></span> </p>

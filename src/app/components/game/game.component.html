@@ -1,11 +1,14 @@
 <app-header></app-header>
 
-<div class="load-container" *ngIf="game == []">
-    <p>... loading</p>
+<div class="load-container" *ngIf="game.length == 0">
+    <div class="load">
+       <p>... loading</p> 
+    </div>
+    
 </div>
 
 <div class="game-detail" [style.background-image]="'url(' + game.background_image + ')'"
-    style="background-repeat: no-repeat; background-size: cover; background-position-x: center;" *ngIf="game">
+    style="background-repeat: no-repeat; background-size: cover; background-position-x: center;" *ngIf="game.length !== 0">
     <div class="game-description">
         <h2>{{game.name}}</h2>
         <p>Released: {{game.released | date: 'dd.MM.YYYY'}}</p>
@@ -66,7 +69,9 @@
 
 <app-footer></app-footer>
 <div class="btn-container">
-    <button mat-raised-button [routerLink]="['']" (click)="rawgService.gameSlug = ''" class="back-btn"><mat-icon
+    <button mat-raised-button [routerLink]="['']"  class="back-btn"><mat-icon
             aria-hidden="false" aria-label="Example arrow_back icon" fontIcon="arrow_back"></mat-icon> Back to Main
     </button>
 </div>
+
+<!-- (click)="rawgService.gameSlug = ''" -->

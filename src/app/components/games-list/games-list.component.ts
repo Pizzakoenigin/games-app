@@ -31,11 +31,14 @@ export class GamesListComponent implements OnInit{
   
 
   ngOnInit(): void {
+    if(this.rawgService.searchMode == false) {
     this.rawgService.getGames().subscribe(data => {
       this.rawgService.games = data.results
       this.rawgService.paginatorLength = data.count;
-      
-    })
+     })       
+    }
+
+    
     // this.loadGames()
   }
 }

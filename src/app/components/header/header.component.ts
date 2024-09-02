@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit{
   }
 
   searchGames() {
+    this.rawgService.searchMode = true;
     this.rawgService.searchGameByString().subscribe(data => {
       this.rawgService.games = data.results
       this.rawgService.paginatorLength = data.count;

@@ -1,15 +1,19 @@
 <app-header></app-header>
 
-<div class="load-container" *ngIf="rawgService.games == []">
-    <p>... loading</p>
+<div class="games-list" *ngIf="rawgService.games.length == 0">
+    <div class="load-container">
+        <p>... loading</p>
+    </div>
 </div>
 
-<div class="games-list" *ngIf="rawgService.games">
+
+<div class="games-list" *ngIf="rawgService.games.length > 0">
     <div class="game-item" *ngFor="let game of rawgService.games" [routerLink]="['/game-detail', game.id]"
         (click)="rawgService.gameID = game.id">
         <img src="{{game.background_image}}" alt="">
         <h2>{{game.name}}</h2>
-        <p>Genres: <span *ngFor="let genre of game.genres; let last = last">{{genre.name}}<span *ngIf="!last">, </span></span> </p>
+        <p>Genres: <span *ngFor="let genre of game.genres; let last = last">{{genre.name}}<span *ngIf="!last">,
+                </span></span> </p>
         <p *ngIf="game.metacritic">Rating: {{game.metacritic}} / 100</p>
         <p>Released: {{game.released | date: 'dd.MM.YYYY'}}</p>
     </div>
@@ -19,4 +23,4 @@
 
 <app-paginator></app-paginator>
 
- <!-- [pageIndex]="rawgService.paginatorPage - 1" -->
+<!-- [pageIndex]="rawgService.paginatorPage - 1" -->

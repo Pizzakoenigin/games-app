@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header-container">
-        <h1 [routerLink]="['']" (click)="rawgService.gameSlug = ''">Games</h1>
+        <h1 [routerLink]="['']" (click)="rawgService.gameSlug = ''; rawgService.searchMode = false" >Games</h1>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search for a game" [(ngModel)]="rawgService.gameSlug"
                 (keydown)="onKeydown($event)">

@@ -15,7 +15,7 @@
 
 }
 
-.game-item {
+.game-item, .load-container {
     /* align-self: bottom; */
     display: flex;
     flex-direction: column;

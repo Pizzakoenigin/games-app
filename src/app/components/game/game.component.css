@@ -1,4 +1,4 @@
-.game-detail {
+.game-detail{
     /* align-self: bottom; */
     display: flex;
     flex-direction: column;
@@ -25,6 +25,13 @@
     p {
         margin: 1em 0;
     }
+}
+
+.load {
+    width: 80vw;
+    margin: 1em auto;
+    background-color: var(--bright-gray);
+    border-radius: 0.8em;
 }
 
 .game-image {

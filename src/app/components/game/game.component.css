@@ -37,7 +37,6 @@
 }
 
 .game-description {
-
     padding: 1em;
     /* position: absolute; */
     background-color: rgb(61, 61, 61, 0.8);
@@ -80,7 +79,6 @@
 }
 
 .achievement-link:hover {
-    
     cursor: pointer;
 }
 

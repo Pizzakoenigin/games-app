@@ -5,5 +5,5 @@ import { MainComponent } from './components/main/main.component';
 
 export const routes: Routes = [
     {path: 'game-detail/:id', component: GameComponent},
-    {path: '', component: MainComponent}
+    {path: '', component: GamesListComponent}
 ];

@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import {PageEvent, MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 
 @Component({
@@ -17,7 +18,8 @@ import { FooterComponent } from '../footer/footer.component';
     MatPaginatorModule, 
     MatPaginator, 
     PaginatorComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   templateUrl: './games-list.component.html',
   styleUrl: './games-list.component.css'

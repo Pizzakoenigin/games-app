@@ -1,4 +1,4 @@
-export interface Detail{
+export interface Achievement{
     id: 0,
     name: string,
     description: string,

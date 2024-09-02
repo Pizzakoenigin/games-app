@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { Detail } from '../../interfaces/detail';
+import { Achievement } from '../../interfaces/detail';
 import { AchievementsService } from '../../services/achievements.service';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import { FooterComponent } from '../footer/footer.component';
@@ -33,7 +33,7 @@ export class GameComponent implements OnInit {
 
   ]
 
-  details: Detail[] = []
+  achievements: Achievement[] = []
 
   showAchievements: boolean = false
 
@@ -54,7 +54,7 @@ export class GameComponent implements OnInit {
 
   getAchievements(): void {
     this.achievementService.getAchievements().subscribe(data => {
-      this.details = data.results
+      this.achievements = data.results
       this.achievementService.paginatorLength = data.count;
      })
   }

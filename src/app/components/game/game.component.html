@@ -1,17 +1,15 @@
 <app-header></app-header>
+
+<div class="load-container" *ngIf="game == []">
+    <p>... loading</p>
+</div>
+
 <div class="game-detail" [style.background-image]="'url(' + game.background_image + ')'"
-    style="background-repeat: no-repeat; background-size: cover; background-position-x: center;">
-
-
-    <!-- <div class="game-image">
-        <img src={{game.background_image}} alt="">
-    </div> -->
-
-
+    style="background-repeat: no-repeat; background-size: cover; background-position-x: center;" *ngIf="game">
     <div class="game-description">
         <h2>{{game.name}}</h2>
         <p>Released: {{game.released | date: 'dd.MM.YYYY'}}</p>
-        <p>Rating: {{game.metacritic}} / 100</p>
+        <p *ngIf="game.metacritic">Rating: {{game.metacritic}} / 100</p>
         <p class="description-text">{{game.description}}</p>
         <p>Genres: <span *ngFor="let genre of game.genres; let last = last">{{genre.name}}<span *ngIf="!last">,
                 </span></span> </p>
@@ -24,21 +22,20 @@
                     *ngIf="!last">, </span></span> </p>
         <p>Publisher(s): <span *ngFor="let publisher of game.publishers; let last = last">{{publisher.name}}<span
                     *ngIf="!last">, </span></span> </p>
-        <a href={{game.website}}>Website</a>
+        <a href={{game.website}} *ngIf="game.website">Website</a>
 
-        <p (click)="showAchievements = true" class="achievement-link" *ngIf="showAchievements == false">Show
+        <p (click)="showAchievements = true" class="achievement-link" *ngIf="achievements.length > 0 && showAchievements == false">Show
             achievements</p>
     </div>
 </div>
 
 
 
-<div class="achievement-container" *ngIf="details.length > 0 && showAchievements">
+<div class="achievement-container" *ngIf="achievements.length > 0 && showAchievements">
     <h3>Achievements: 
-
     </h3>
     <div class="game-achievements" >
-        <div class="game-achievement" *ngFor="let detail of details">
+        <div class="game-achievement" *ngFor="let detail of achievements">
             <img src="{{detail.image}}" alt="">
             <h4>{{detail.name}}</h4>
             <p>{{detail.description}}</p>
@@ -52,7 +49,7 @@
             achievements</span>    
 
 
-    <div class="paginator-achievement" *ngIf="details.length > 0">
+    <div class="paginator-achievement" *ngIf="achievements.length > 0">
         <div class="paginator-container-achievement">
         <mat-paginator 
         (page)="handlePageEvent($event)"

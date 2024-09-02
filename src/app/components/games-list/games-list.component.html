@@ -1,4 +1,10 @@
-<div class="games-list">
+<app-header></app-header>
+
+<div class="load-container" *ngIf="rawgService.games == []">
+    <p>... loading</p>
+</div>
+
+<div class="games-list" *ngIf="rawgService.games">
     <div class="game-item" *ngFor="let game of rawgService.games" [routerLink]="['/game-detail', game.id]"
         (click)="rawgService.gameID = game.id">
         <img src="{{game.background_image}}" alt="">
@@ -7,8 +13,6 @@
         <p *ngIf="game.metacritic">Rating: {{game.metacritic}} / 100</p>
         <p>Released: {{game.released | date: 'dd.MM.YYYY'}}</p>
     </div>
-
-    
 </div>
 
 <app-footer></app-footer>

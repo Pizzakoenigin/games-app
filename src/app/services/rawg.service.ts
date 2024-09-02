@@ -32,6 +32,7 @@ export class RawgService {
   }
 
   searchGameByString(): Observable<any> {
+    this.games = []
     return this.http.get(`${this.apiUrl}?search=${this.gameSlug}&key=${this.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
   }
 

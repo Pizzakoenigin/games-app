@@ -70,11 +70,8 @@ export class RawgService {
   }
 
   goToPublishers(): void {
-    this.publisherSearchMode = true
     firstValueFrom(this.getGamesByPublisher())
       .then(data => {
-        // console.log(data);
-        
         this.games = data.results;
         this.paginatorLength = data.count;
       })
@@ -82,5 +79,4 @@ export class RawgService {
         this.router.navigate(['']);
       });
   }
-
 }

@@ -11,8 +11,7 @@ import { AchievementsService } from '../../services/achievements.service';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import { FooterComponent } from '../footer/footer.component';
 import { firstValueFrom } from 'rxjs';
-
-
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-game',
@@ -30,13 +29,10 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './game.component.css'
 })
 export class GameComponent implements OnInit {
-
-
   achievements: Achievement[] = []
-
   showAchievements: boolean = false
 
-  constructor(public rawgService: RawgService, public achievementService: AchievementsService, private router: Router) {
+  constructor(public rawgService: RawgService, public achievementService: AchievementsService, private router: Router, public menuService: MenuService) {
 
   }
 
@@ -70,11 +66,6 @@ export class GameComponent implements OnInit {
     this.achievementService.paginatorPageSize = e.pageSize;
     this.achievementService.paginatorPage = e.pageIndex + 1;
     this.getAchievements()
-  }
-
-  goBack() {
-    this.rawgService.game = []
-    this.router.navigate([''])
   }
 
   goToDeveloperPage ()  {

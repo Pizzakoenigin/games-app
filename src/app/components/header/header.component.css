@@ -4,10 +4,6 @@
     position: sticky;
     top: 0;
     z-index: 5;
-
-
-    /* padding: 0.5em; */
-    
 }
 
 .header-container {
@@ -20,12 +16,21 @@
 
 h1 {
     font-weight: 300;
-
-    /* text-align: center; */
 }
 
 h1:hover {
     cursor: pointer;
+}
+
+.heading-main {
+    border-bottom: 0.1em solid transparent;
+    transition: all 0.3s ease-in;
+}
+
+.heading-main:hover {
+    color: orange;
+    border-bottom: 0.1em solid orange;
+    font-weight: 400;
 }
 
 .search-input {
@@ -36,13 +41,10 @@ h1:hover {
     padding: 0.2em;
     position: relative;
     display: inline-block;
-    
-
 }
 
     .search-input {
         padding-left: 20px;
-        /* width: 100%;  */
     }
     
     .search-icon {
@@ -52,6 +54,7 @@ h1:hover {
         transform: translateY(-50%); 
         color: var(--bright-gray); 
     }
+
     .search-icon:hover {
         cursor: pointer;
     }

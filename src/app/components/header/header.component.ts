@@ -25,46 +25,15 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // if (this.rawgService.gameSlug == '') {
-    //   this.rawgService.searchMode = false
-    // }
-
-
-    // if (this.rawgService.gameSlug === '') {
-    //   console.log('click');
-
-    //   this.rawgService.searchMode = false
-    // }
 
   }
 
   backToMain() {
-    // if (this.rawgService.developerSearchMode) {
-    //   firstValueFrom(this.rawgService.getGames()).then(() => {
-    //     this.rawgService.developerSearchMode = false;
-    //     // this.router.navigate(['']);
-    //     this.rawgService.gameSlug = '';
-    //     this.rawgService.searchMode = false;
-    //     this.rawgService.developer = [];
-    //   });
-    // } else {
-    //   ;
-    // }
 
     if(this.rawgService.game){
       this.router.navigate([''])
       this.rawgService.game = []
     }
-   
-    // this.rawgService.gameSlug = ''; 
-    // this.rawgService.searchMode = false; 
-    // this.rawgService.developerSearchMode = false;
-    // this.rawgService.publisherSearchMode = false;
-    // this.rawgService.developer = []
-    // this.rawgService.publisher = []
-    // this.rawgService.games = []
-    // this.rawgService.game = [] 
-    // this.rawgService.loadGames()
 
     this.menuService.backToMain()
   }
@@ -84,13 +53,4 @@ export class HeaderComponent implements OnInit {
 
     })
   }
-
-  // loadGames() {
-  //   if(this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false) {
-  //   this.rawgService.getGames().subscribe(data => {
-  //     this.rawgService.games = data.results
-  //     this.rawgService.paginatorLength = data.count;
-  //    })       
-  //   }      
-  // }
 }

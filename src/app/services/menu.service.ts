@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { RawgService } from './rawg.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
 
-  constructor(public rawgService:RawgService) { }
+  constructor(public rawgService:RawgService, private router: Router) { }
 
   backToMain() {
     this.rawgService.gameSlug = ''; 
@@ -18,5 +19,10 @@ export class MenuService {
     this.rawgService.games = []
     this.rawgService.game = [] 
     this.rawgService.loadGames()
+  }
+
+  goBack() {
+    this.rawgService.game = []
+    this.router.navigate([''])
   }
 }

@@ -45,12 +45,32 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  searchGames() {
-    this.rawgService.searchMode = true;
+  searchGames(): void {
+    this.resetData().then(() => {
     this.rawgService.searchGameByString().subscribe(data => {
       this.rawgService.games = data.results
-      this.rawgService.paginatorLength = data.count;
+      this.rawgService.paginatorLength = data.count;      
+    })
+    })
+  }
 
+  resetData(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      next: {
+      this.rawgService.searchMode = true;
+      this.rawgService.developerSearchMode = false;
+      this.rawgService.publisherSearchMode = false;
+      this.rawgService.developer = []
+      this.rawgService.publisher = []
+      this.rawgService.games = []
+      this.rawgService.game = []
+      this.rawgService.paginatorPage = 1;
+      resolve();
+      }
+      error: {
+        reject()
+      }
+      
     })
   }
 }

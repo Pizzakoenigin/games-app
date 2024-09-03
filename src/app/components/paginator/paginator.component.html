@@ -1,6 +1,7 @@
 <div class="paginator">
     <div class="paginator-container">
-    <mat-paginator 
+    <mat-paginator
+    #mainPaginator 
     (page)="handlePageEvent($event)"
     [length]="rawgService.paginatorLength"
     [pageSize]="rawgService.paginatorPageSize" 

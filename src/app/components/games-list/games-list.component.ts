@@ -33,7 +33,12 @@ export class GamesListComponent implements OnInit{
   constructor(public rawgService: RawgService, public menuService: MenuService) {}
 
   ngOnInit(): void {
-    this.rawgService.loadGames()
+    if(this.rawgService.developerSearchMode == false && this.rawgService.publisherSearchMode == false && this.rawgService.searchMode == false) {
+    console.log('check');
+    
+      this.rawgService.loadGames()      
+    }   
+
   }
 
 }

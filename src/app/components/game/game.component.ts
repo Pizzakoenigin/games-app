@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import { RawgService } from '../../services/rawg.service';
 import { Game } from '../../interfaces/game';
 import { HeaderComponent } from '../header/header.component';
@@ -29,6 +29,7 @@ import { MenuService } from '../../services/menu.service';
   styleUrl: './game.component.css'
 })
 export class GameComponent implements OnInit {
+
   achievements: Achievement[] = []
   showAchievements: boolean = false
 
@@ -79,7 +80,21 @@ export class GameComponent implements OnInit {
     this.getAchievements()
   }
 
-  goToDeveloperPage ()  {
+  goToDeveloperPage(): void  {
+    this.goToDeveloperPageClearData().then(()=> {
+      this.rawgService.goToDevelopers()
+    })
+  }
+
+  goToPublisherPage(): void {
+    this.goToPublisherPageClearData().then(() => {
+      this.rawgService.goToPublishers()
+    })
+  }
+
+  goToDeveloperPageClearData(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      next: {
     this.rawgService.gameSlug = ''; 
     this.rawgService.searchMode = false; 
     this.rawgService.developerSearchMode = true;
@@ -87,11 +102,18 @@ export class GameComponent implements OnInit {
     this.rawgService.publisher = []
     this.rawgService.games = []
     this.rawgService.game = [] 
-    this.rawgService.paginatorPage = 1
-    this.rawgService.goToDevelopers()
+    this.rawgService.paginatorPage = 1;
+    resolve();        
+      }
+      error: {
+        reject()
+      }
+    })
   }
 
-  goToPublisherPage() {
+  goToPublisherPageClearData(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      next: {
     this.rawgService.gameSlug = ''; 
     this.rawgService.searchMode = false; 
     this.rawgService.developerSearchMode = false;
@@ -99,7 +121,14 @@ export class GameComponent implements OnInit {
     this.rawgService.developer = []
     this.rawgService.games = []
     this.rawgService.game = [] 
-    this.rawgService.paginatorPage = 1
-    this.rawgService.goToPublishers()
+    this.rawgService.paginatorPage = 1;
+    resolve();        
+      }
+      error: {
+        reject()
+      }
+    })
   }
+
+
 }

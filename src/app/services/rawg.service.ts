@@ -33,12 +33,11 @@ export class RawgService {
   }
 
   loadGames() {
-    if(this.searchMode == false && this.developerSearchMode == false && this.publisherSearchMode == false) {
     this.getGames().subscribe(data => {
       this.games = data.results
       this.paginatorLength = data.count;
      })       
-    }      
+       
   }
 
   getGame(): Observable<any> {

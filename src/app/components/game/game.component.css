@@ -13,7 +13,7 @@
     /* background: linear-gradient(to bottom right, rgb(10, 16, 43), rgb(72, 7, 70)) ; */
     filter: drop-shadow(0 0 0.35rem rgb(100, 0, 0));
     border: 1px solid var(--bright-violet);
-    transition: all 0.3s ease-in;
+    /* transition: all 0.3s ease-in; */
     width: 80vw;
     margin: 1em auto;
     padding: 30% 0 0 0;

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  constructor(public rawgService: RawgService, private router: Router) {
+  constructor(public rawgService: RawgService, private router: Router, public menuService: MenuService) {
 
   }
 
@@ -55,15 +56,17 @@ export class HeaderComponent implements OnInit {
       this.rawgService.game = []
     }
    
-    this.rawgService.gameSlug = ''; 
-    this.rawgService.searchMode = false; 
-    this.rawgService.developerSearchMode = false;
-    this.rawgService.publisherSearchMode = false;
-    this.rawgService.developer = []
-    this.rawgService.publisher = []
-    this.rawgService.games = []
-    this.rawgService.game = [] 
-    this.rawgService.loadGames()
+    // this.rawgService.gameSlug = ''; 
+    // this.rawgService.searchMode = false; 
+    // this.rawgService.developerSearchMode = false;
+    // this.rawgService.publisherSearchMode = false;
+    // this.rawgService.developer = []
+    // this.rawgService.publisher = []
+    // this.rawgService.games = []
+    // this.rawgService.game = [] 
+    // this.rawgService.loadGames()
+
+    this.menuService.backToMain()
   }
 
   onKeydown(event: KeyboardEvent) {

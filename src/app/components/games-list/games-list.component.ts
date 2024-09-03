@@ -9,6 +9,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MenuService } from '../../services/menu.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './games-list.component.css'
 })
 export class GamesListComponent implements OnInit{
-  constructor(public rawgService: RawgService) {}
+  constructor(public rawgService: RawgService, public menuService: MenuService) {}
 
   ngOnInit(): void {
     this.rawgService.loadGames()
@@ -44,15 +45,15 @@ export class GamesListComponent implements OnInit{
   //   }      
   // }
 
-  returnToMain() {
-    this.rawgService.gameSlug = ''; 
-    this.rawgService.searchMode = false; 
-    this.rawgService.developerSearchMode = false;
-    this.rawgService.publisherSearchMode = false;
-    this.rawgService.developer = []
-    this.rawgService.publisher = []
-    this.rawgService.games = []
-    this.rawgService.game = [] 
-    this.rawgService.loadGames()
-  }
+  // returnToMain() {
+  //   this.rawgService.gameSlug = ''; 
+  //   this.rawgService.searchMode = false; 
+  //   this.rawgService.developerSearchMode = false;
+  //   this.rawgService.publisherSearchMode = false;
+  //   this.rawgService.developer = []
+  //   this.rawgService.publisher = []
+  //   this.rawgService.games = []
+  //   this.rawgService.game = [] 
+  //   this.rawgService.loadGames()
+  // }
 }

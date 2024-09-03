@@ -69,9 +69,7 @@
 
 <app-footer></app-footer>
 <div class="btn-container">
-    <button mat-raised-button [routerLink]="['']"  class="back-btn"><mat-icon
-            aria-hidden="false" aria-label="Example arrow_back icon" fontIcon="arrow_back"></mat-icon> Back
+    <button mat-raised-button class="back-btn" (click)="goBack()">
+        <mat-icon aria-hidden="false" aria-label="Example arrow_back icon" fontIcon="arrow_back"></mat-icon> Back
     </button>
 </div>
-
-<!-- (click)="rawgService.gameSlug = ''" -->

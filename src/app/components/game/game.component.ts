@@ -58,8 +58,6 @@ export class GameComponent implements OnInit {
     })
   }
 
-
-
   removeHTMLTags(str: string): string {
     const parser = new DOMParser();
     const doc = parser.parseFromString(str, 'text/html');
@@ -72,5 +70,10 @@ export class GameComponent implements OnInit {
     this.achievementService.paginatorPageSize = e.pageSize;
     this.achievementService.paginatorPage = e.pageIndex + 1;
     this.getAchievements()
+  }
+
+  goBack() {
+    this.rawgService.game = []
+    this.router.navigate([''])
   }
 }

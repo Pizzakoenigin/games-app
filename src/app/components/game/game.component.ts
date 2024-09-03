@@ -76,4 +76,26 @@ export class GameComponent implements OnInit {
     this.rawgService.game = []
     this.router.navigate([''])
   }
+
+  goToDeveloperPage ()  {
+    this.rawgService.gameSlug = ''; 
+    this.rawgService.searchMode = false; 
+    this.rawgService.developerSearchMode = true;
+    this.rawgService.publisherSearchMode = false;
+    this.rawgService.publisher = []
+    this.rawgService.games = []
+    this.rawgService.game = [] 
+    this.rawgService.goToDevelopers()
+  }
+
+  goToPublisherPage() {
+    this.rawgService.gameSlug = ''; 
+    this.rawgService.searchMode = false; 
+    this.rawgService.developerSearchMode = false;
+    this.rawgService.publisherSearchMode = true;
+    this.rawgService.developer = []
+    this.rawgService.games = []
+    this.rawgService.game = [] 
+    this.rawgService.goToPublishers()
+  }
 }

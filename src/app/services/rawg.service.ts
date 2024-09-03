@@ -59,7 +59,6 @@ export class RawgService {
    }
 
   goToDevelopers(): void {
-    this.developerSearchMode = true
     firstValueFrom(this.getGamesByDeveloper())
       .then(data => {
         this.games = data.results;

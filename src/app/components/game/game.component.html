@@ -21,9 +21,9 @@
         <p>Platforms: <span *ngFor="let platform of rawgService.game.platforms; let last = last">{{platform.platform.name}}<span
                     *ngIf="!last">, </span></span></p>
         <!-- <p>{{rawgService.game.platforms}}</p> -->
-        <p>Developer(s): <span class="developers-span" *ngFor="let developer of rawgService.game.developers; let last = last" (click)="rawgService.developer = developer; rawgService.goToDevelopers()">{{developer.name}}<span
+        <p>Developer(s): <span class="developers-span" *ngFor="let developer of rawgService.game.developers; let last = last" (click)="rawgService.developer = developer; goToDeveloperPage(); ">{{developer.name}}<span
                     *ngIf="!last">, </span></span> </p>
-        <p>Publisher(s): <span class="publishers-span" *ngFor="let publisher of rawgService.game.publishers; let last = last" (click)="rawgService.publisher = publisher; rawgService.goToPublishers()">{{publisher.name}}<span
+        <p>Publisher(s): <span class="publishers-span" *ngFor="let publisher of rawgService.game.publishers; let last = last" (click)="rawgService.publisher = publisher; goToPublisherPage(); ">{{publisher.name}}<span
                     *ngIf="!last">, </span></span> </p>
         <a href={{rawgService.game.website}} *ngIf="rawgService.game.website">Website</a>
 

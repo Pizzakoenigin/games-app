@@ -47,8 +47,13 @@ export class HeaderComponent implements OnInit {
     //     this.rawgService.developer = [];
     //   });
     // } else {
-    //   this.router.navigate(['']);
+    //   ;
     // }
+
+    if(this.rawgService.game){
+      this.router.navigate([''])
+      this.rawgService.game = []
+    }
    
     this.rawgService.gameSlug = ''; 
     this.rawgService.searchMode = false; 

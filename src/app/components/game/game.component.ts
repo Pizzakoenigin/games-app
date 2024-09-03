@@ -30,9 +30,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './game.component.css'
 })
 export class GameComponent implements OnInit {
-  game: any = [
 
-  ]
 
   achievements: Achievement[] = []
 
@@ -44,9 +42,9 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.rawgService.getGame().subscribe(data => {
-      this.game = data
-      if (this.game.description) {
-        this.game.description = this.removeHTMLTags(this.game.description)
+      this.rawgService.game = data
+      if (this.rawgService.game.description) {
+        this.rawgService.game.description = this.removeHTMLTags(this.rawgService.game.description)
       }
     })
 

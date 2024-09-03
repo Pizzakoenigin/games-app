@@ -18,6 +18,8 @@ export class RawgService {
   paginatorLength: number = 100
   gameSlug: string = '';
   games: Game[] = [];
+  game: any = [ ];
+  detailMode: boolean = false
   searchMode: boolean = false;
   developerSearchMode: boolean = false;
   developer: any = []

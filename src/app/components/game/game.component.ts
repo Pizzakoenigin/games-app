@@ -36,24 +36,34 @@ export class GameComponent implements OnInit {
 
   }
 
-  async ngOnInit(): Promise<void> {
-    await this.getAchievements()
-    await this.rawgService.getGame().subscribe(data => {
-      this.rawgService.game = data
-      if (this.rawgService.game.description) {
-        this.rawgService.game.description = this.removeHTMLTags(this.rawgService.game.description)
-      }
-    })
-
-    
+  ngOnInit(): void {
+    this.getAchievements().then(() => {
+      this.rawgService.getGame().subscribe(data => {
+        this.rawgService.game = data;
+        if (this.rawgService.game.description) {
+          this.rawgService.game.description = this.removeHTMLTags(this.rawgService.game.description);
+        }
+      });
+    }).catch(error => {
+      console.error('Error fetching achievements:', error);
+    });
   }
-
-  getAchievements(): void {
-    this.achievementService.getAchievements().subscribe(data => {
-      this.achievements = data.results
-      this.achievementService.paginatorLength = data.count;
-    })
+  
+  getAchievements(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.achievementService.getAchievements().subscribe({
+        next: data => {
+          this.achievements = data.results;
+          this.achievementService.paginatorLength = data.count;
+          resolve(); // Resolve the promise when data is successfully fetched
+        },
+        error: err => {
+          reject(err); // Reject the promise if there's an error
+        }
+      });
+    });
   }
+  
 
   removeHTMLTags(str: string): string {
     const parser = new DOMParser();

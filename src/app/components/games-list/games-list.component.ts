@@ -32,26 +32,24 @@ export class GamesListComponent implements OnInit{
   constructor(public rawgService: RawgService) {}
 
   ngOnInit(): void {
-    this.loadGames()
+    this.rawgService.loadGames()
   }
 
-  loadGames() {
-    if(this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false) {
-    this.rawgService.getGames().subscribe(data => {
-      this.rawgService.games = data.results
-      this.rawgService.paginatorLength = data.count;
-     })       
-    }      
-  }
+  // loadGames() {
+  //   if(this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false) {
+  //   this.rawgService.getGames().subscribe(data => {
+  //     this.rawgService.games = data.results
+  //     this.rawgService.paginatorLength = data.count;
+  //    })       
+  //   }      
+  // }
 
   returnToMain() {
-    console.log('check');
-    
     this.rawgService.gameSlug = ''; 
     this.rawgService.searchMode = false; 
     this.rawgService.developerSearchMode = false;
     this.rawgService.developer = []
     this.rawgService.games = [] 
-    this.loadGames()
+    this.rawgService.loadGames()
   }
 }

@@ -28,6 +28,15 @@ export class RawgService {
     return this.http.get(`${this.apiUrl}?key=${this.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
   }
 
+  loadGames() {
+    if(this.searchMode == false && this.developerSearchMode == false) {
+    this.getGames().subscribe(data => {
+      this.games = data.results
+      this.paginatorLength = data.count;
+     })       
+    }      
+  }
+
   getGame(): Observable<any> {
     return this.http.get(`${this.apiUrl}/${this.gameID}?key=${this.API_KEY}`)
   }
@@ -38,11 +47,8 @@ export class RawgService {
   }
 
   getGamesByDeveloper(): Observable<any> {
-
     return this.http.get(`${this.apiUrl}?key=${this.API_KEY}&developers=${this.developer.id}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
-
-    
-  }
+   }
 
   goToDevelopers(): void {
     this.developerSearchMode = true

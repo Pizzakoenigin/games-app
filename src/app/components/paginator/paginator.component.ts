@@ -9,12 +9,15 @@ import { RawgService } from '../../services/rawg.service';
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })
-export class PaginatorComponent {
+export class PaginatorComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   constructor(public rawgService: RawgService) { }
   // pageEvent!: PageEvent;
 
+  ngOnInit(): void {
+    
+  }
 
 
   handlePageEvent(e: PageEvent) {
@@ -39,11 +42,11 @@ export class PaginatorComponent {
       this.searchGames()
     }
 
-    if(this.rawgService.developerSearchMode == true) {
+    if (this.rawgService.developerSearchMode == true) {
       this.rawgService.goToDevelopers()
     }
 
-    if(this.rawgService.publisherSearchMode == true) {
+    if (this.rawgService.publisherSearchMode == true) {
       this.rawgService.goToPublishers()
     }
 

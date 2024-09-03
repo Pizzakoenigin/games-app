@@ -28,15 +28,15 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  backToMain() {
+  // backToMain() {
 
-    if(this.rawgService.game){
-      this.router.navigate([''])
-      this.rawgService.game = []
-    }
+  //   if(this.rawgService.game){
+  //     this.router.navigate([''])
+  //     this.rawgService.game = []
+  //   }
 
-    this.menuService.backToMain()
-  }
+  //   this.menuService.backToMain()
+  // }
 
   onKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') {

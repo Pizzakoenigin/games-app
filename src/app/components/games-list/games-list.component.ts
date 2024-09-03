@@ -36,24 +36,4 @@ export class GamesListComponent implements OnInit{
     this.rawgService.loadGames()
   }
 
-  // loadGames() {
-  //   if(this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false) {
-  //   this.rawgService.getGames().subscribe(data => {
-  //     this.rawgService.games = data.results
-  //     this.rawgService.paginatorLength = data.count;
-  //    })       
-  //   }      
-  // }
-
-  // returnToMain() {
-  //   this.rawgService.gameSlug = ''; 
-  //   this.rawgService.searchMode = false; 
-  //   this.rawgService.developerSearchMode = false;
-  //   this.rawgService.publisherSearchMode = false;
-  //   this.rawgService.developer = []
-  //   this.rawgService.publisher = []
-  //   this.rawgService.games = []
-  //   this.rawgService.game = [] 
-  //   this.rawgService.loadGames()
-  // }
 }

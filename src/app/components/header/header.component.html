@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header-container">
-        <h1 (click)="backToMain()"> 
+        <h1 (click)="menuService.backToMain()"> 
             <span class="heading-main">Games</span>  
             <span *ngIf="rawgService.developer.name"> developed by {{rawgService.developer.name}}</span>
             <span *ngIf="rawgService.publisher.name"> published by {{rawgService.publisher.name}}</span>

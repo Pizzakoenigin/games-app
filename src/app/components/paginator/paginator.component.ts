@@ -16,7 +16,7 @@ export class PaginatorComponent implements OnInit {
   // pageEvent!: PageEvent;
 
   ngOnInit(): void {
-    
+
   }
 
 
@@ -49,7 +49,6 @@ export class PaginatorComponent implements OnInit {
     if (this.rawgService.publisherSearchMode == true) {
       this.rawgService.goToPublishers()
     }
-
   }
 
   searchGames() {

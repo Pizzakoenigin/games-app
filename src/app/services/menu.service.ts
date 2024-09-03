@@ -31,6 +31,7 @@ export class MenuService {
         this.rawgService.game = []
         this.rawgService.paginatorPage = 1;
         this.rawgService.paginatorPageSize = 20
+        this.rawgService.keyword = ''
         resolve();
       }
       error: {

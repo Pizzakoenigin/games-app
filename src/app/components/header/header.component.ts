@@ -20,6 +20,7 @@ import { MenuService } from '../../services/menu.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
+
   constructor(public rawgService: RawgService, private router: Router, public menuService: MenuService) {
 
   }
@@ -49,7 +50,8 @@ export class HeaderComponent implements OnInit {
     this.resetData().then(() => {
     this.rawgService.searchGameByString().subscribe(data => {
       this.rawgService.games = data.results
-      this.rawgService.paginatorLength = data.count;      
+      this.rawgService.paginatorLength = data.count;
+      this.rawgService.keyword = this.rawgService.gameSlug      
     })
     })
   }
@@ -65,6 +67,8 @@ export class HeaderComponent implements OnInit {
       this.rawgService.games = []
       this.rawgService.game = []
       this.rawgService.paginatorPage = 1;
+      this.rawgService.keyword = ''
+      
       resolve();
       }
       error: {

@@ -25,6 +25,7 @@ export class RawgService {
   publisherSearchMode: boolean = false;
   developer: any = []
   publisher: any = []
+  keyword: string = ''
 
   constructor(private http: HttpClient, private router: Router) { }
 

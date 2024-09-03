@@ -23,7 +23,7 @@
         <!-- <p>{{rawgService.game.platforms}}</p> -->
         <p>Developer(s): <span class="developers-span" *ngFor="let developer of rawgService.game.developers; let last = last" (click)="rawgService.developer = developer; rawgService.goToDevelopers()">{{developer.name}}<span
                     *ngIf="!last">, </span></span> </p>
-        <p>Publisher(s): <span *ngFor="let publisher of rawgService.game.publishers; let last = last">{{publisher.name}}<span
+        <p>Publisher(s): <span class="publishers-span" *ngFor="let publisher of rawgService.game.publishers; let last = last" (click)="rawgService.publisher = publisher; rawgService.goToPublishers()">{{publisher.name}}<span
                     *ngIf="!last">, </span></span> </p>
         <a href={{rawgService.game.website}} *ngIf="rawgService.game.website">Website</a>
 
@@ -43,15 +43,10 @@
             <h4>{{detail.name}}</h4>
             <p>{{detail.description}}</p>
             <p>{{detail.percent}}% of players have this achievement</p>
-
         </div>
     </div>
-
-
         <span (click)="showAchievements = false" class="achievement-link" *ngIf="showAchievements == true" style="padding: 1em;">Hide
             achievements</span>    
-
-
     <div class="paginator-achievement" *ngIf="achievements.length > 0">
         <div class="paginator-container-achievement">
         <mat-paginator 

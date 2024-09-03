@@ -22,7 +22,9 @@ export class RawgService {
   detailMode: boolean = false
   searchMode: boolean = false;
   developerSearchMode: boolean = false;
+  publisherSearchMode: boolean = false;
   developer: any = []
+  publisher: any = []
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -31,7 +33,7 @@ export class RawgService {
   }
 
   loadGames() {
-    if(this.searchMode == false && this.developerSearchMode == false) {
+    if(this.searchMode == false && this.developerSearchMode == false && this.publisherSearchMode == false) {
     this.getGames().subscribe(data => {
       this.games = data.results
       this.paginatorLength = data.count;
@@ -52,12 +54,28 @@ export class RawgService {
     return this.http.get(`${this.apiUrl}?key=${this.API_KEY}&developers=${this.developer.id}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
    }
 
+   getGamesByPublisher(): Observable<any> {
+    return this.http.get(`${this.apiUrl}?key=${this.API_KEY}&publishers=${this.publisher.id}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+   }
+
   goToDevelopers(): void {
     this.developerSearchMode = true
-    // this.games = []    
-
     firstValueFrom(this.getGamesByDeveloper())
       .then(data => {
+        this.games = data.results;
+        this.paginatorLength = data.count;
+      })
+      .finally(() => {
+        this.router.navigate(['']);
+      });
+  }
+
+  goToPublishers(): void {
+    this.publisherSearchMode = true
+    firstValueFrom(this.getGamesByPublisher())
+      .then(data => {
+        // console.log(data);
+        
         this.games = data.results;
         this.paginatorLength = data.count;
       })

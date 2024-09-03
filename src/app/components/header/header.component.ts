@@ -58,8 +58,11 @@ export class HeaderComponent implements OnInit {
     this.rawgService.gameSlug = ''; 
     this.rawgService.searchMode = false; 
     this.rawgService.developerSearchMode = false;
+    this.rawgService.publisherSearchMode = false;
     this.rawgService.developer = []
-    this.rawgService.games = [] 
+    this.rawgService.publisher = []
+    this.rawgService.games = []
+    this.rawgService.game = [] 
     this.rawgService.loadGames()
   }
 

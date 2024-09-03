@@ -130,7 +130,7 @@
     padding-top: 1em;
 }
 
-.developers-span:hover {
+.developers-span:hover, .publishers-span:hover {
     color: orange;
     cursor: pointer;
 }

@@ -28,7 +28,7 @@ export class PaginatorComponent {
   }
 
   loadGames() {
-    if (this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false) {
+    if (this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false && this.rawgService.publisherSearchMode == false) {
       this.rawgService.getGames().subscribe(data => {
         this.rawgService.games = data.results;
         this.rawgService.paginatorLength = data.count;
@@ -41,6 +41,10 @@ export class PaginatorComponent {
 
     if(this.rawgService.developerSearchMode == true) {
       this.rawgService.goToDevelopers()
+    }
+
+    if(this.rawgService.publisherSearchMode == true) {
+      this.rawgService.goToPublishers()
     }
 
   }

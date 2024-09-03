@@ -18,6 +18,7 @@ export class MenuService {
     this.rawgService.publisher = []
     this.rawgService.games = []
     this.rawgService.game = [] 
+    this.rawgService.paginatorPage = 1
     this.rawgService.loadGames()
   }
 

@@ -36,15 +36,16 @@ export class GameComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.rawgService.getGame().subscribe(data => {
+  async ngOnInit(): Promise<void> {
+    await this.getAchievements()
+    await this.rawgService.getGame().subscribe(data => {
       this.rawgService.game = data
       if (this.rawgService.game.description) {
         this.rawgService.game.description = this.removeHTMLTags(this.rawgService.game.description)
       }
     })
 
-    this.getAchievements()
+    
   }
 
   getAchievements(): void {
@@ -76,6 +77,7 @@ export class GameComponent implements OnInit {
     this.rawgService.publisher = []
     this.rawgService.games = []
     this.rawgService.game = [] 
+    this.rawgService.paginatorPage = 1
     this.rawgService.goToDevelopers()
   }
 
@@ -87,6 +89,7 @@ export class GameComponent implements OnInit {
     this.rawgService.developer = []
     this.rawgService.games = []
     this.rawgService.game = [] 
+    this.rawgService.paginatorPage = 1
     this.rawgService.goToPublishers()
   }
 }

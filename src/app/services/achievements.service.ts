@@ -21,3 +21,5 @@ export class AchievementsService {
     return this.http.get(`${this.rawgService.apiUrl}/${this.rawgService.gameID}/achievements?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
   }
 }
+
+//test

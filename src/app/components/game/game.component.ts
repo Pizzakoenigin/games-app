@@ -56,10 +56,10 @@ export class GameComponent implements OnInit {
         next: data => {
           this.achievements = data.results;
           this.achievementService.paginatorLength = data.count;
-          resolve(); // Resolve the promise when data is successfully fetched
+          resolve();
         },
         error: err => {
-          reject(err); // Reject the promise if there's an error
+          reject(err);
         }
       });
     });

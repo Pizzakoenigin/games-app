@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EnvironmentService } from './environment.service';
 
-
+//TODO ACHIEVEMENT PAGINATOR
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,7 @@ export class AchievementsService {
 
 
   getAchievements(): Observable<any>{
-    return this.http.get(`${this.rawgService.apiUrl}/${this.rawgService.gameID}/achievements?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+    return this.http.get(`${this.rawgService.apiUrl}/${this.rawgService.gameID}/achievements?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
   }
 }
 
-//test

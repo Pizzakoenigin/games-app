@@ -15,7 +15,7 @@ export class RawgService {
   apiUrl = `https://api.rawg.io/api/games`
   public gameID: number = 0;
   paginatorPageSize: number = 20
-  paginatorPage: number = 1
+  paginatorPage: number = 0 
   paginatorLength: number = 100
   gameSlug: string = '';
   games: Game[] = [];
@@ -31,14 +31,36 @@ export class RawgService {
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService) { }
 
   getGames(): Observable<any> {
-    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+    // if (this.paginatorPage = 0) {
+    //   this.paginatorPage = 1
+    //   return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=1`)
+    // }
+    
+    
+    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
   }
 
   loadGames() {
+    if (this.searchMode == false && this.developerSearchMode == false && this.publisherSearchMode == false){
     this.getGames().subscribe(data => {
       this.games = data.results
       this.paginatorLength = data.count;
-     })       
+      console.log(this.paginatorPage);
+     })         
+    }
+
+    if (this.searchMode == true) {
+      this.searchGames()
+    }
+
+    if (this.developerSearchMode == true) {
+      this.goToDevelopers()
+    }
+
+    if (this.publisherSearchMode == true) {
+      this.goToPublishers()
+    }
+    
        
   }
 
@@ -48,15 +70,24 @@ export class RawgService {
 
   searchGameByString(): Observable<any> {
     this.games = []
-    return this.http.get(`${this.apiUrl}?search=${this.gameSlug}&key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+    return this.http.get(`${this.apiUrl}?search=${this.gameSlug}&key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
+  }
+
+
+  searchGames() {
+    this.searchGameByString().subscribe(data => {
+      this.games = data.results
+      this.paginatorLength = data.count;
+
+    })
   }
 
   getGamesByDeveloper(): Observable<any> {
-    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&developers=${this.developer.id}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&developers=${this.developer.id}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
    }
 
    getGamesByPublisher(): Observable<any> {
-    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&publishers=${this.publisher.id}&page_size=${this.paginatorPageSize}&page=${this.paginatorPage}`)
+    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&publishers=${this.publisher.id}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
    }
 
   goToDevelopers(): void {

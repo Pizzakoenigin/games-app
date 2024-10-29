@@ -17,46 +17,21 @@ export class PaginatorComponent implements OnInit {
   // pageEvent!: PageEvent;
 
   ngOnInit(): void {
-
+    // length = this.rawgService.paginatorLength
+    console.log(this.rawgService.paginatorPage);
   }
 
 
   handlePageEvent(e: PageEvent) {
     // this.pageEvent = e;
     // this.rawgService.paginatorLength = e.length;
+    console.log(e.pageIndex);
+    
     this.rawgService.paginatorPageSize = e.pageSize;
-    this.rawgService.paginatorPage = e.pageIndex + 1;
-    // console.log(this.rawgService.paginatorPage);
+    this.rawgService.paginatorPage = e.pageIndex
+    console.log(this.rawgService.paginatorPage);
 
-    this.loadGames()
-  }
 
-  loadGames() {
-    if (this.rawgService.searchMode == false && this.rawgService.developerSearchMode == false && this.rawgService.publisherSearchMode == false) {
-      this.rawgService.getGames().subscribe(data => {
-        this.rawgService.games = data.results;
-        this.rawgService.paginatorLength = data.count;
-      });
-    }
-
-    if (this.rawgService.searchMode == true) {
-      this.searchGames()
-    }
-
-    if (this.rawgService.developerSearchMode == true) {
-      this.rawgService.goToDevelopers()
-    }
-
-    if (this.rawgService.publisherSearchMode == true) {
-      this.rawgService.goToPublishers()
-    }
-  }
-
-  searchGames() {
-    this.rawgService.searchGameByString().subscribe(data => {
-      this.rawgService.games = data.results
-      this.rawgService.paginatorLength = data.count;
-
-    })
+    this.rawgService.loadGames()
   }
 }

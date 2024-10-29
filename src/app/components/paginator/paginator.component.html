@@ -5,10 +5,16 @@
     (page)="handlePageEvent($event)"
     [length]="rawgService.paginatorLength"
     [pageSize]="rawgService.paginatorPageSize" 
-    [pageSizeOptions]="[8, 16, 20]" 
+    [pageIndex]="rawgService.paginatorPage"
+    [pageSizeOptions]="[8, 16, 20]"
+    
+
     
     aria-label="Select page">
     </mat-paginator>        
     </div>
 
 </div>
+    <!-- [pageIndex]="rawgService.paginatorPage"  -->   
+
+     <!-- pageSize: Items pro seite  -->

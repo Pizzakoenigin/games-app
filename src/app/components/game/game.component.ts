@@ -48,6 +48,7 @@ export class GameComponent implements OnInit {
     }).catch(error => {
       console.error('Error fetching achievements:', error);
     });
+    console.log(this.rawgService.paginatorPage);
   }
   
   getAchievements(): Promise<void> {
@@ -76,7 +77,7 @@ export class GameComponent implements OnInit {
     // this.pageEvent = e;
     // this.rawgService.paginatorLength = e.length;
     this.achievementService.paginatorPageSize = e.pageSize;
-    this.achievementService.paginatorPage = e.pageIndex + 1;
+    this.achievementService.paginatorPage = e.pageIndex;
     this.getAchievements()
   }
 
@@ -103,7 +104,7 @@ export class GameComponent implements OnInit {
     this.rawgService.publisher = []
     this.rawgService.games = []
     this.rawgService.game = [] 
-    this.rawgService.paginatorPage = 1;
+    this.rawgService.paginatorPage = 0;
     resolve();        
       }
       error: {
@@ -123,7 +124,7 @@ export class GameComponent implements OnInit {
     this.rawgService.developer = []
     this.rawgService.games = []
     this.rawgService.game = [] 
-    this.rawgService.paginatorPage = 1;
+    this.rawgService.paginatorPage = 0;
     resolve();        
       }
       error: {

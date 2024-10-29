@@ -37,7 +37,10 @@
     </h3>
     <div class="game-achievements" >
         <div class="game-achievement" *ngFor="let detail of achievements">
-            <img src="{{detail.image}}" alt="">
+            <div class="image-wrapper">
+               <img src="{{detail.image}}" alt=""> 
+            </div>
+            
             <h4>{{detail.name}}</h4>
             <p>{{detail.description}}</p>
             <p>{{detail.percent}}% of players have this achievement</p>
@@ -66,3 +69,5 @@
         <mat-icon aria-hidden="false" aria-label="Example arrow_back icon" fontIcon="arrow_back"></mat-icon> Back
     </button>
 </div>
+
+<app-footer></app-footer>

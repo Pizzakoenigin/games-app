@@ -25,3 +25,23 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.back-btn {
+    /* width: 20vw; */
+    /* margin: 0 auto; */
+    margin-top: 2em;
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--bright-violet);
+    transition: all 0.3s ease-in;
+}
+
+.back-btn:hover {
+    background-color: orange;
+}
+
+
+.image-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    aspect-ratio: 1;
+}

@@ -46,11 +46,7 @@
         font-weight: 200;
     }
 
-    .image-wrapper {
-        display: inline-block;
-        overflow: hidden;
-        aspect-ratio: 1;
-    }
+
 
     img {
         width: 100%;
@@ -75,15 +71,3 @@
     padding-left: 10vw;
 }
 
-.back-btn {
-    /* width: 20vw; */
-    /* margin: 0 auto; */
-    display: flex;
-    justify-content: flex-start;
-    background-color: var(--bright-violet);
-    transition: all 0.3s ease-in;
-}
-
-.back-btn:hover {
-    background-color: orange;
-}

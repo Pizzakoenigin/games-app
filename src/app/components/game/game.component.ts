@@ -38,19 +38,21 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.rawgService.getGame().subscribe(data => {
+      this.rawgService.game = data;
+      if (this.rawgService.game.description) {
+        this.rawgService.game.description = this.removeHTMLTags(this.rawgService.game.description);
+      }
+    });
+
     this.getAchievements().then(() => {
-      this.rawgService.getGame().subscribe(data => {
-        this.rawgService.game = data;
-        if (this.rawgService.game.description) {
-          this.rawgService.game.description = this.removeHTMLTags(this.rawgService.game.description);
-        }
-      });
+
     }).catch(error => {
       console.error('Error fetching achievements:', error);
     });
-    console.log(this.rawgService.paginatorPage);
+
   }
-  
+
   getAchievements(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.achievementService.getAchievements().subscribe({
@@ -65,7 +67,7 @@ export class GameComponent implements OnInit {
       });
     });
   }
-  
+
 
   removeHTMLTags(str: string): string {
     const parser = new DOMParser();
@@ -81,8 +83,8 @@ export class GameComponent implements OnInit {
     this.getAchievements()
   }
 
-  goToDeveloperPage(): void  {
-    this.goToDeveloperPageClearData().then(()=> {
+  goToDeveloperPage(): void {
+    this.goToDeveloperPageClearData().then(() => {
       this.rawgService.goToDevelopers()
     })
   }
@@ -96,16 +98,16 @@ export class GameComponent implements OnInit {
   goToDeveloperPageClearData(): Promise<void> {
     return new Promise((resolve, reject) => {
       next: {
-    this.rawgService.gameSlug = ''; 
-    this.rawgService.searchMode = false;
-    this.rawgService.detailMode = false; 
-    this.rawgService.developerSearchMode = true;
-    this.rawgService.publisherSearchMode = false;
-    this.rawgService.publisher = []
-    this.rawgService.games = []
-    this.rawgService.game = [] 
-    this.rawgService.paginatorPage = 0;
-    resolve();        
+        this.rawgService.gameSlug = '';
+        this.rawgService.searchMode = false;
+        this.rawgService.detailMode = false;
+        this.rawgService.developerSearchMode = true;
+        this.rawgService.publisherSearchMode = false;
+        this.rawgService.publisher = []
+        this.rawgService.games = []
+        this.rawgService.game = []
+        this.rawgService.paginatorPage = 0;
+        resolve();
       }
       error: {
         reject()
@@ -116,16 +118,16 @@ export class GameComponent implements OnInit {
   goToPublisherPageClearData(): Promise<void> {
     return new Promise((resolve, reject) => {
       next: {
-    this.rawgService.gameSlug = ''; 
-    this.rawgService.searchMode = false;
-    this.rawgService.detailMode = false;  
-    this.rawgService.developerSearchMode = false;
-    this.rawgService.publisherSearchMode = true;
-    this.rawgService.developer = []
-    this.rawgService.games = []
-    this.rawgService.game = [] 
-    this.rawgService.paginatorPage = 0;
-    resolve();        
+        this.rawgService.gameSlug = '';
+        this.rawgService.searchMode = false;
+        this.rawgService.detailMode = false;
+        this.rawgService.developerSearchMode = false;
+        this.rawgService.publisherSearchMode = true;
+        this.rawgService.developer = []
+        this.rawgService.games = []
+        this.rawgService.game = []
+        this.rawgService.paginatorPage = 0;
+        resolve();
       }
       error: {
         reject()

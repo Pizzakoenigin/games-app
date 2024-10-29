@@ -45,7 +45,6 @@ export class RawgService {
     this.getGames().subscribe(data => {
       this.games = data.results
       this.paginatorLength = data.count;
-      console.log(this.paginatorPage);
      })         
     }
 

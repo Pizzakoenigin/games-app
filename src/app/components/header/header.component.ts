@@ -51,7 +51,8 @@ export class HeaderComponent implements OnInit {
     this.rawgService.searchGameByString().subscribe(data => {
       this.rawgService.games = data.results
       this.rawgService.paginatorLength = data.count;
-      this.rawgService.keyword = this.rawgService.gameSlug      
+      this.rawgService.keyword = this.rawgService.gameSlug
+      this.rawgService.paginatorPage = 0;
     })
     })
   }
@@ -66,7 +67,7 @@ export class HeaderComponent implements OnInit {
       this.rawgService.publisher = []
       this.rawgService.games = []
       this.rawgService.game = []
-      this.rawgService.paginatorPage = 1;
+      this.rawgService.paginatorPage = 0;
       this.rawgService.keyword = ''
       
       resolve();

@@ -17,21 +17,13 @@ export class PaginatorComponent implements OnInit {
   // pageEvent!: PageEvent;
 
   ngOnInit(): void {
-    // length = this.rawgService.paginatorLength
-    console.log(this.rawgService.paginatorPage);
+
   }
 
 
   handlePageEvent(e: PageEvent) {
-    // this.pageEvent = e;
-    // this.rawgService.paginatorLength = e.length;
-    console.log(e.pageIndex);
-    
     this.rawgService.paginatorPageSize = e.pageSize;
     this.rawgService.paginatorPage = e.pageIndex
-    console.log(this.rawgService.paginatorPage);
-
-
     this.rawgService.loadGames()
   }
 }

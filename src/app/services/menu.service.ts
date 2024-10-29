@@ -16,7 +16,6 @@ export class MenuService {
     }).then(() => {
       this.router.navigate([''])
       this.rawgService.detailMode = false 
-      console.log(this.rawgService.paginatorPage);
     })
   }
 
@@ -51,6 +50,5 @@ export class MenuService {
     this.rawgService.game = []
     this.rawgService.detailMode = false 
     this.router.navigate([''])
-    console.log(this.rawgService.paginatorPage);
   }
 }

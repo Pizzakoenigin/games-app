@@ -11,7 +11,7 @@ import { EnvironmentService } from './environment.service';
 })
 export class AchievementsService {
   paginatorPageSize: number = 20
-  paginatorPage: number = 1
+  paginatorPage: number = 0
   paginatorLength: number = 100
 
   constructor(public rawgService: RawgService, private http: HttpClient, private environmentService: EnvironmentService) { }

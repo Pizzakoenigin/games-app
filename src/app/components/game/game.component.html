@@ -45,12 +45,13 @@
     </div>
         <span (click)="showAchievements = false" class="achievement-link" *ngIf="showAchievements == true" style="padding: 1em;">Hide
             achievements</span>    
-    <div class="paginator-achievement" *ngIf="achievements.length > 0">
+    <div class="paginator-achievement" *ngIf="achievements.length > 0 && showAchievements">
         <div class="paginator-container-achievement">
         <mat-paginator 
         (page)="handlePageEvent($event)"
         [length]="achievementService.paginatorLength"
-        [pageSize]="achievementService.paginatorPageSize" 
+        [pageSize]="achievementService.paginatorPageSize"
+        [pageIndex]="achievementService.paginatorPage" 
         [pageSizeOptions]="[8, 16, 20]" 
         
         aria-label="Select page">

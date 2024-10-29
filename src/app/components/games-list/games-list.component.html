@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <div class="games-list" *ngIf="rawgService.games.length == 0">
     <div class="load-container">
         <p>... loading</p>
@@ -9,7 +7,7 @@
 
 <div class="games-list" *ngIf="rawgService.games.length > 0">
     <div class="game-item" *ngFor="let game of rawgService.games" [routerLink]="['/game-detail', game.id]"
-        (click)="rawgService.gameID = game.id">
+        (click)="rawgService.gameID = game.id; rawgService.detailMode = true">
         <div class="image-wrapper">
            <img src="{{game.background_image}}" alt=""> 
         </div>
@@ -28,8 +26,6 @@
     </button>
 </div>
 
-<app-footer></app-footer>
 
-<app-paginator></app-paginator>
 
 <!-- [pageIndex]="rawgService.paginatorPage - 1" -->

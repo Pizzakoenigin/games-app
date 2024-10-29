@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PageEvent, MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { RawgService } from '../../services/rawg.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-paginator',
   standalone: true,
-  imports: [MatPaginator],
+  imports: [MatPaginator, CommonModule],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css'
 })

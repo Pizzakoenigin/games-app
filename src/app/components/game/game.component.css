@@ -23,7 +23,7 @@
     }
 
     p {
-        margin: 1em 0;
+        margin: 2em 0;
     }
 }
 
@@ -142,6 +142,7 @@
 .back-btn {
     /* width: 20vw; */
     /* margin: 0 auto; */
+    margin-top: 2em;
     display: flex;
     justify-content: flex-start;
     background-color: var(--bright-violet);

@@ -96,7 +96,8 @@ export class GameComponent implements OnInit {
     return new Promise((resolve, reject) => {
       next: {
     this.rawgService.gameSlug = ''; 
-    this.rawgService.searchMode = false; 
+    this.rawgService.searchMode = false;
+    this.rawgService.detailMode = false; 
     this.rawgService.developerSearchMode = true;
     this.rawgService.publisherSearchMode = false;
     this.rawgService.publisher = []
@@ -115,7 +116,8 @@ export class GameComponent implements OnInit {
     return new Promise((resolve, reject) => {
       next: {
     this.rawgService.gameSlug = ''; 
-    this.rawgService.searchMode = false; 
+    this.rawgService.searchMode = false;
+    this.rawgService.detailMode = false;  
     this.rawgService.developerSearchMode = false;
     this.rawgService.publisherSearchMode = true;
     this.rawgService.developer = []

@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <div class="load-container" *ngIf="rawgService.game.length == 0">
     <div class="load">
        <p>... loading</p> 
@@ -62,7 +60,6 @@
     </div>
 </div>
 
-<app-footer></app-footer>
 <div class="btn-container">
     <button mat-raised-button class="back-btn" (click)="menuService.goBack()">
         <mat-icon aria-hidden="false" aria-label="Example arrow_back icon" fontIcon="arrow_back"></mat-icon> Back

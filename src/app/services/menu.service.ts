@@ -15,6 +15,7 @@ export class MenuService {
       this.rawgService.loadGames()
     }).then(() => {
       this.router.navigate([''])
+      this.rawgService.detailMode = false 
     })
   }
 
@@ -47,6 +48,7 @@ export class MenuService {
     //     this.rawgService.game = []
     //   }
     this.rawgService.game = []
+    this.rawgService.detailMode = false 
     this.router.navigate([''])
   }
 }

@@ -76,8 +76,6 @@ export class RawgService {
       })
     }
 
-    // in case of refresh:
-
     if (this.searchMode == true) {
       this.searchGames()
     }
@@ -110,8 +108,6 @@ export class RawgService {
 
     })
   }
-
-
 
   goToDevelopers(): void {
     firstValueFrom(this.getGamesByDeveloper())
@@ -171,5 +167,6 @@ export class RawgService {
     this.game = []
     this.paginatorPage = 0;
     this.keyword = ''
+    // this.gameSlug = ''
   }
 }

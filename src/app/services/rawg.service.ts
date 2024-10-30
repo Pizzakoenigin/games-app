@@ -31,12 +31,6 @@ export class RawgService {
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService) { }
 
   getGames(): Observable<any> {
-    // if (this.paginatorPage = 0) {
-    //   this.paginatorPage = 1
-    //   return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=1`)
-    // }
-    
-    
     return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
   }
 

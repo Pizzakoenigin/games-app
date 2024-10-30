@@ -4,6 +4,7 @@
             <span class="heading-main">Games</span>  
             <span *ngIf="rawgService.developer.name"> developed by {{rawgService.developer.name}}</span>
             <span *ngIf="rawgService.publisher.name"> published by {{rawgService.publisher.name}}</span>
+            <span *ngIf="rawgService.platform.platform.name"> for the {{rawgService.platform.platform.name}}</span>
             <span *ngIf="rawgService.keyword && rawgService.searchMode == true"> Search results {{rawgService.keyword}}</span>
         </h1>
         <div class="search-container">

@@ -16,7 +16,7 @@
                 </span></span> </p>
 
 
-        <p>Platforms: <span *ngFor="let platform of rawgService.game.platforms; let last = last">{{platform.platform.name}}<span
+        <p>Platforms: <span class="platform-span" *ngFor="let platform of rawgService.game.platforms; let last = last" (click)="rawgService.platform = platform; goToPlatformPage()">{{platform.platform.name}}<span
                     *ngIf="!last">, </span></span></p>
         <!-- <p>{{rawgService.game.platforms}}</p> -->
         <p>Developer(s): <span class="developers-span" *ngFor="let developer of rawgService.game.developers; let last = last" (click)="rawgService.developer = developer; goToDeveloperPage(); ">{{developer.name}}<span

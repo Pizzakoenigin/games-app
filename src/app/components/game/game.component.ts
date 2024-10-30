@@ -95,6 +95,12 @@ export class GameComponent implements OnInit {
     })
   }
 
+  goToPlatformPage(): void {
+    this.goToPlatformPageClearData().then(() => {
+      this.rawgService.goToPlatform()
+    })
+  }
+
   goToDeveloperPageClearData(): Promise<void> {
     return new Promise((resolve, reject) => {
       next: {
@@ -104,6 +110,7 @@ export class GameComponent implements OnInit {
         this.rawgService.developerSearchMode = true;
         this.rawgService.publisherSearchMode = false;
         this.rawgService.publisher = []
+        this.rawgService.platform = []
         this.rawgService.games = []
         this.rawgService.game = []
         this.rawgService.paginatorPage = 0;
@@ -123,7 +130,31 @@ export class GameComponent implements OnInit {
         this.rawgService.detailMode = false;
         this.rawgService.developerSearchMode = false;
         this.rawgService.publisherSearchMode = true;
+        this.rawgService.platformSearchMode = false;
         this.rawgService.developer = []
+        this.rawgService.platform = []
+        this.rawgService.games = []
+        this.rawgService.game = []
+        this.rawgService.paginatorPage = 0;
+        resolve();
+      }
+      error: {
+        reject()
+      }
+    })
+  }
+
+  goToPlatformPageClearData(): Promise <void> {
+    return new Promise((resolve, reject) => {
+      next: {
+        this.rawgService.gameSlug = '';
+        this.rawgService.searchMode = false;
+        this.rawgService.detailMode = false;
+        this.rawgService.developerSearchMode = false;
+        this.rawgService.publisherSearchMode = false;
+        this.rawgService.platformSearchMode = true;
+        this.rawgService.developer = []
+        this.rawgService.publisher = []
         this.rawgService.games = []
         this.rawgService.game = []
         this.rawgService.paginatorPage = 0;

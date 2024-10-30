@@ -12,7 +12,7 @@
         <p>Released: {{rawgService.game.released | date: 'dd.MM.YYYY'}}</p>
         <p *ngIf="rawgService.game.metacritic">Rating: {{rawgService.game.metacritic}} / 100</p>
         <p class="description-text">{{rawgService.game.description}}</p>
-        <p>Genres: <span *ngFor="let genre of rawgService.game.genres; let last = last">{{genre.name}}<span *ngIf="!last">,
+        <p>Genres: <span class="genre-span" *ngFor="let genre of rawgService.game.genres; let last = last" (click)="rawgService.genre = genre; goToGenrePage()" >{{genre.name}}<span *ngIf="!last">,
                 </span></span> </p>
 
 

@@ -101,6 +101,12 @@ export class GameComponent implements OnInit {
     })
   }
 
+  goToGenrePage(): void {
+    this.goToGenrePageClearData().then(() => {
+      this.rawgService.goToGenre()
+    })
+  }
+
   goToDeveloperPageClearData(): Promise<void> {
     return new Promise((resolve, reject) => {
       next: {
@@ -109,8 +115,10 @@ export class GameComponent implements OnInit {
         this.rawgService.detailMode = false;
         this.rawgService.developerSearchMode = true;
         this.rawgService.publisherSearchMode = false;
+        this.rawgService.genreSearchMode =false;
         this.rawgService.publisher = []
         this.rawgService.platform = []
+        this.rawgService.genre = [];
         this.rawgService.games = []
         this.rawgService.game = []
         this.rawgService.paginatorPage = 0;
@@ -131,8 +139,11 @@ export class GameComponent implements OnInit {
         this.rawgService.developerSearchMode = false;
         this.rawgService.publisherSearchMode = true;
         this.rawgService.platformSearchMode = false;
+        this.rawgService.genreSearchMode =false;
+
         this.rawgService.developer = []
         this.rawgService.platform = []
+        this.rawgService.genre = [];
         this.rawgService.games = []
         this.rawgService.game = []
         this.rawgService.paginatorPage = 0;
@@ -153,6 +164,32 @@ export class GameComponent implements OnInit {
         this.rawgService.developerSearchMode = false;
         this.rawgService.publisherSearchMode = false;
         this.rawgService.platformSearchMode = true;
+        this.rawgService.genreSearchMode =false;
+
+        this.rawgService.developer = []
+        this.rawgService.publisher = []
+        this.rawgService.genre = [];
+        this.rawgService.games = []
+        this.rawgService.game = []
+        this.rawgService.paginatorPage = 0;
+        resolve();
+      }
+      error: {
+        reject()
+      }
+    })
+  }
+
+  goToGenrePageClearData(): Promise <void> {
+    return new Promise((resolve, reject) => {
+      next: {
+        this.rawgService.gameSlug = '';
+        this.rawgService.searchMode = false;
+        this.rawgService.detailMode = false;
+        this.rawgService.developerSearchMode = false;
+        this.rawgService.publisherSearchMode = false;
+        this.rawgService.platformSearchMode = false;
+        this.rawgService.genreSearchMode =true;
         this.rawgService.developer = []
         this.rawgService.publisher = []
         this.rawgService.games = []

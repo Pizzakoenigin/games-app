@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
 
+    
   }
 
   // backToMain() {
@@ -60,15 +61,8 @@ export class HeaderComponent implements OnInit {
   resetData(): Promise<void> {
     return new Promise((resolve, reject) => {
       next: {
-      this.rawgService.searchMode = true;
-      this.rawgService.developerSearchMode = false;
-      this.rawgService.publisherSearchMode = false;
-      this.rawgService.developer = []
-      this.rawgService.publisher = []
-      this.rawgService.games = []
-      this.rawgService.game = []
-      this.rawgService.paginatorPage = 0;
-      this.rawgService.keyword = ''
+        this.rawgService.resetData()
+        this.rawgService.searchMode = true
       
       resolve();
       }

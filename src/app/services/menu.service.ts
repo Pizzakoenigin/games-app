@@ -23,17 +23,7 @@ export class MenuService {
   resetData(): Promise<void> {
     return new Promise((resolve, reject) => {
       next: {
-        this.rawgService.gameSlug = '';
-        this.rawgService.searchMode = false;
-        this.rawgService.developerSearchMode = false;
-        this.rawgService.publisherSearchMode = false;
-        this.rawgService.developer = []
-        this.rawgService.publisher = []
-        this.rawgService.games = []
-        this.rawgService.game = []
-        this.rawgService.paginatorPage = 0;
-        this.rawgService.paginatorPageSize = 20
-        this.rawgService.keyword = ''
+        this.rawgService.resetData()
         resolve();
       }
       error: {

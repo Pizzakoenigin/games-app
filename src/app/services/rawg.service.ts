@@ -24,10 +24,13 @@ export class RawgService {
   searchMode: boolean = false;
   developerSearchMode: boolean = false;
   publisherSearchMode: boolean = false;
-  platformSearchMode: boolean = false
+  platformSearchMode: boolean = false;
+  genreSearchMode: boolean = false;
   developer: any = []
   publisher: any = []
-  platform: any = []
+  platform: any = [
+  ]
+  genre: any = []
   keyword: string = ''
 
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService) { }
@@ -52,6 +55,13 @@ export class RawgService {
     return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&platforms=${this.platform.platform.id}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
   }
 
+  getGamesByGenre(): Observable<any> {
+    console.log(this.genre.name);
+    
+    return this.http.get(`${this.apiUrl}?key=${this.environmentService.API_KEY}&genres=${this.genre.id}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
+
+  }
+
   searchGameByString(): Observable<any> {
     this.games = []
     return this.http.get(`${this.apiUrl}?search=${this.gameSlug}&key=${this.environmentService.API_KEY}&page_size=${this.paginatorPageSize}&page=${1 + this.paginatorPage}`)
@@ -59,7 +69,7 @@ export class RawgService {
 
 
   loadGames() {
-    if (this.searchMode == false && this.developerSearchMode == false && this.publisherSearchMode == false && this.platformSearchMode == false) {
+    if (this.searchMode == false && this.developerSearchMode == false && this.publisherSearchMode == false && this.platformSearchMode == false && this.genreSearchMode == false) {
       this.getGames().subscribe(data => {
         this.games = data.results
         this.paginatorLength = data.count;
@@ -84,6 +94,9 @@ export class RawgService {
       this.goToPlatform()
     }
 
+    if (this.genreSearchMode == true) {
+      this.goToGenre()
+    }
   }
 
 
@@ -131,5 +144,32 @@ export class RawgService {
     .finally(() => {
       this.router.navigate(['']);
     });
+  }
+
+  goToGenre(): void {
+    firstValueFrom(this.getGamesByGenre())
+    .then(data => {
+      this.games = data.results;
+      this.paginatorLength = data.count;
+    })
+    .finally(() => {
+      this.router.navigate(['']);
+    });
+  }
+
+  resetData() {
+    this.searchMode = false;
+    this.developerSearchMode = false;
+    this.publisherSearchMode = false;
+    this.platformSearchMode = false
+    this.genreSearchMode = false;
+    this.developer = []
+    this.publisher = []
+    this.platform = []
+    this.genre = []
+    this.games = []
+    this.game = []
+    this.paginatorPage = 0;
+    this.keyword = ''
   }
 }

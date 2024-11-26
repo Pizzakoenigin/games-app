@@ -1,3 +1,12 @@
+
+<img width="1509" alt="image001" src="https://github.com/user-attachments/assets/1316c8ed-13f3-4c36-97bb-6106e1d74db5">
+
+<img width="1509" alt="image002" src="https://github.com/user-attachments/assets/e67f54ff-e232-445f-8a07-090d558f31a5">
+
+<img width="1511" alt="image003" src="https://github.com/user-attachments/assets/d5233dc2-d5fd-42e8-8348-95d54ce65bea">
+
+You will need your own API Key from RAWG to run the application.
+
 # GamesApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
